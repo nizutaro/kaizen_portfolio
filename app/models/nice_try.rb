@@ -1,0 +1,2 @@
+class NiceTry < ApplicationRecord
+end
