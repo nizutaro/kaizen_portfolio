@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   
 
   resources :projects do
-    resource :favorite
+    resource :favorites
     resources :comments, only: [:create, :destroy]
   end
   root 'homes#about'

@@ -4,31 +4,45 @@
     <title>Kaizen</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--awesomeの導入-->
+  <script src="https://kit.fontawesome.com/9f81cad960.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="application.scss">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <!--gem gonの導入-->
+    <%= include_gon %>
+    <%= javascript_include_tag "application" %>
    </head>
+
   <body>
-    <div class= "container-fluid">
-      <div class= "row">
-        <div class= "col-md-5">
-          <p>logoを表示</p>
-        </div>
-        <div class= "col-md-2">
-          <p>ユーザー名表示</p>
-        </div>
-        <div class= "col-md-5">
-          <% if user_signed_in? %>
-            <%= link_to("マイページ",user_path(current_user.id)) %>
-            <%= link_to("会員一覧",users_path) %>
-            <%= link_to("提案一覧",projects_path) %>
-            <%= link_to(" ログアウト", destroy_user_session_path) %>
-          <% else %>
-            <%= link_to("about",root_path,{class: "glyphicon glyphicon-log-in"})%>
-            <%= link_to("新規登録", new_user_registration_path)%>
-            <%= link_to("ログイン", new_user_session_path)%>
-          <% end %>
+      <img src="/assets/image/kaizen.png" alt="" >
+    <header class="navbar navbar-fixed-top bg-light">
+      <div class= "container-fluid">
+        <div class= "row">
+          <div class= "col-md-5 nav-header-logo" >
+             <img src="/assets/logo_1" alt="" >
+          </div>
+          <div class= "col-md-2">
+          </div>
+          <div class= "col-md-5 nav-header-list">
+            <% if user_signed_in? %>
+              <%= link_to("マイページ",user_path(current_user.id)) %>
+              <%= link_to("提案する",new_project_path) %>
+              <%= link_to("提案一覧",projects_path) %>
+              <%= link_to("会員一覧",users_path) %>
+              <%= link_to(" ログアウト", destroy_user_session_path) %>
+            <% else %>
+              <%= link_to("about",root_path,{class: "glyphicon glyphicon-log-in"})%>
+              <%= link_to("新規登録", new_user_registration_path)%>
+              <%= link_to("ログイン", new_user_session_path)%>
+            <% end %>
+          </div>  
         </div>
       </div>
+    </header>
+    <div class= "body1 container-fluid">
       <%= yield %>
+    </div>
   </body>
 </html>

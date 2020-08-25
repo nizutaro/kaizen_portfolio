@@ -1,18 +1,44 @@
 <h2 class="page-header text-center border-bottom">提案一覧</h2>
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
-    <%= link_to "提案する",new_project_path, {class: "btn btn-success"} %>
-  </div>
-</div>
     <table class="table table-striped table-inverse">
       <th>No.</th>
       <th>タイトル</th>
+      <th>ステータス</th>
+      <th>改善時間</th>
       <th>提案者</th>
+      <th>いいね・コメント</th>
       <% @projects.each do |project| %>
         <tr>
           <td><%= project.id %></td>
-          <td><%= project.name %></td>
-          <td><%=  project.user.family_name + project.user.farst_name %></td>
+          <td><%= link_to project.name ,project_path(project) %></td>
+          <td><%= project.status %></td>
+          <td><%= project.reducation_time %>分/年</td>
+          <td><%= link_to project.user.family_name + project.user.farst_name, user_path(project.user) %></td>
+          <td>
+            <small>
+              <% if project.favorited_by?(current_user) %>
+                <%= link_to project_favorites_path(project), method: :delete do %>
+                <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+                <%= project.favorites.count %> いいね
+                <% end %>
+              <% else %>
+                <%= link_to project_favorites_path(project), method: :post do %>
+                  <i class="fa fa-heart-o" aria-hidden="true"></i>
+                  <%= project.favorites.count %> いいね
+                  <% end %>
+              <% end %>
+            </small>
+            <small><i class="fas fa-comment"> <%= project.comments.count %></i>件</small>
+          </td>
+          <td>
+            <% if project.user = current_user %>
+              <%= "aaa" %>
+            <% end %>
+          </td>
         </tr>
-     <% end %>
+      <% end %>
     </table>
+    <%= paginate @projects %>
+  </div>
+</div>

@@ -1,28 +1,31 @@
 <h2 class="page-header text-center">登録情報編集</h2><br>
   <div class="row center">
     <div class="col-md-8 col-md-offset-2">
-      <div class= "form-group">
-        <%= form_with(model:[@user], local: true) do |f| %>
-      </div>
-      <table>
-        <tr>
-          <td>
-            <div class= "form-group">
-                <%= f.label :"(姓)" %>
-                <%= f.text_field :family_name, class: 'form-control', placeholder: "例:田中" %>
-            </div>
+      <%= form_with(model:[@user], local: true) do |f| %>
+        <table>
+          <tr>
+            <td>
+              <div class= "form-group">
+                  <%= f.label :"(姓)" %>
+                  <%= f.text_field :family_name, class: 'form-control', placeholder: "例:田中" %>
+              </div>
+              </td>
+              <td>　</td>
+            <td>
+              <div class= "form-group">
+                  <%= f.label :"(名)" %>
+                <%= f.text_field :farst_name, class: 'form-control', placeholder: "例:太郎" %>
+              </div>
             </td>
-            <td>　</td>
-          <td>
-            <div class= "form-group">
-                <%= f.label :"(名)" %>
-              <%= f.text_field :farst_name, class: 'form-control', placeholder: "例:太郎" %>
-            </div>
-          </td>
-        </tr>
-      </table>
-                
-      <%= f.attachment_field :image %><br>
+          </tr>
+        </table>
+      <div class="form-group has-icon">
+        <div class="user-edit-image">
+          <%= attachment_image_tag @user, :image, :fill, 60, 60,size: "60x60", class: "img-circle pull-left profile-thumb", fallback: "no-img.jpg"%>
+        </div>
+        <%= f.attachment_field :image, placeholder: "プロフィール画像", class: "user-edit-form" %>
+      </div>
+      
       <div class= 'text-center'>
         <%= f.submit '編集する', class:"btn btn-primary" %>
       </div>

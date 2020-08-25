@@ -1,29 +1,32 @@
 <div class= "row">
   <div class= "col-md-8 col-md-offset-2">
+    <h2 class="page-header text-center border-bottom">会員一覧</h2>
     <table class= "table">
-      <th><p>会員id</p></th>
-          <th><p>会員名</p></th>
-          <th><p>ナイストライ数</p></th>
-          <th><p>提案数</p></th>
+      <th></th>
+      <th>会員id</th>
+          <th>会員名</th>
+          <th>ナイストライ数</th>
+          <th>提案数</th>
           <th><p></p></th>
       <% @users.each do |user| %>
           <tr>
           <td>
-              <%= attachment_image_tag user, :image, :fill, 100, 100, format: 'jpeg', fallback:'no-img.jpg', size:'40x40' %>
-            </td>
-            <td>
+            <%= attachment_image_tag user, :image, :fill, 100, 100, format: 'jpeg', fallback:'no-img.jpg', size:'40x40', class: "img-circle pull-left profile-thumb" %>
+          </td>
             <td> <%= user.id %> </td>
             <td> <%= link_to user.family_name + user.farst_name,user_path(user.id) %> 
             </td>
-            <td> <p>"ナイストライ"</p></td>
-            <td> <p></p></td>
+            <td>"ナイストライ"</td>
+            <td><%= user.projects.count %>回</td>
             <td>
-            <% if user == current_user %> 
-              <%= link_to "編集", edit_user_path(user),class:"btn btn-primary" %>
-            <% end %>
+              <% if user == current_user %> 
+                <%= link_to "編集", edit_user_path(user),class:"btn btn-primary" %>
+              <% end %>
             </td>
           </tr>
         <% end %>
       </table>
+      <%= @amount %>
+      <%= paginate @users %>
   </div>
 </div>
