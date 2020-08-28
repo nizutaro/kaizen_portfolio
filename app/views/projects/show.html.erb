@@ -35,7 +35,14 @@
         <tr>
         <td>作業の月回数：<%= @project.number_of_month %>回</td>
         </tr>
-        <td>改善による削減時間：<%= @project.reducation_time %>時間</td>
+        <td>改善による削減時間：
+           <% if @project.reducation_time >= 60 %>
+              <%= @project.reducation_time / 60 %>時間 
+              <%= @project.reducation_time % 60 %>分</td>
+            <% else %>
+              <%= @project.reducation_time %>分
+          <% end %>
+        </td>
       <tr>
       <tr>
         <td>いいね <i class="fa fa-heart" aria-hidden="true" style="color: red;">

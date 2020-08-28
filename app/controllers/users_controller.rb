@@ -2,16 +2,13 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:update, :destroy]
   def index
     @users = User.page(params[:page]).reverse_order
-    @amount = Project.group(:user_id).sum(:reducation_time)
+    
   end
 
   def show
     @user = User.find(params[:id])
     @projects = @user.projects
-    
-    @projects.each do |project|
-      @reducation_time = project.reducation_time
-    end
+    @projects_count = Project.where(user_id: @user).count
   end
 
   def edit
@@ -27,7 +24,7 @@ class UsersController < ApplicationController
       redirect_to user_path(current_user)
     else
       @user = current_user
-      render :edit
+      render :edit 
     end
   end
   private

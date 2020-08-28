@@ -1,11 +1,35 @@
 <h2 class="page-header text-center border-bottom">提案一覧</h2>
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
+  <!-- Graphs -->
+  <canvas id="myChart" width="900" height="400"></canvas>
+  <script>
+    var ctx = document.getElementById("myChart").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels:  <%= @data.to_json.html_safe %>,
+            datasets: [{
+                label: "削減総時間",
+                data: <%= @data %>,
+                backgroundColor: 'rgba(255, 99, 132, 1.0)',
+                borderColor: 'rgba(255, 50, 132, 1.0)',
+                fill: false
+            }]
+        },
+        options: {
+            title:  {
+              display: true,
+              text: "ユーザー別改善時間"
+            }
+        }
+    });
+  </script>
     <table class="table table-striped table-inverse">
       <th>No.</th>
       <th>タイトル</th>
       <th>ステータス</th>
-      <th>改善時間</th>
+      <th>改善時間/年間</th>
       <th>提案者</th>
       <th>いいね・コメント</th>
       <% @projects.each do |project| %>
@@ -13,7 +37,13 @@
           <td><%= project.id %></td>
           <td><%= link_to project.name ,project_path(project) %></td>
           <td><%= project.status %></td>
-          <td><%= project.reducation_time %>分/年</td>
+          <td>
+            <% if project.reducation_time >= 60 %>
+                <%= project.reducation_time / 60 %>時間 
+                <%= project.reducation_time % 60 %>分</td>
+              <% else %>
+                <%= project.reducation_time %>分
+            <% end %>
           <td><%= link_to project.user.family_name + project.user.farst_name, user_path(project.user) %></td>
           <td>
             <small>
@@ -32,8 +62,8 @@
             <small><i class="fas fa-comment"> <%= project.comments.count %></i>件</small>
           </td>
           <td>
-            <% if project.user = current_user %>
-              <%= "aaa" %>
+            <% if project.user == current_user %>
+              <%= link_to "編集する",edit_project_path(project), {class: "btn btn-success"} %>
             <% end %>
           </td>
         </tr>

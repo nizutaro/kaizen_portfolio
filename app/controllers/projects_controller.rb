@@ -1,34 +1,53 @@
 class ProjectsController < ApplicationController
   def index
     @projects = Project.page(params[:page]).reverse_order
+    #chart.js
+  @user_data = Project.group(:user_id)
+  @data = Project.group(:user_id).pluck(:reducation_time)
   end
   
   def new
     @project = Project.new
     @status = params[:status_selection]
   end
-  
-  def create
 
+  def create
     @project = Project.new(project_params)
     @project.user_id = current_user.id
-   
+
+    #取得したパラメータを計算させたい
+    job = Job.find(project_params[:job_id])
+    job_amount = job.amount
+    @project.total_amount = job_amount * @project.number_of_month * @project.reducation_time
+
     if @project.save
-      redirect_to projects_path
+      redirect_to projects_path, notice: "提案を保存しました！"
     else
       render :new
     end
-  end 
-  
+  end
 
   def edit
+    @project = Project.find(params[:id])
+    if @project.user_id != current_user.id
+      redirect_to projects_path 
+    end
+  end
+
+  def update
+    @project = Project.find(params[:id])
+    if @project.update(project_params)
+      redirect_to projects_path, notice: "ユーザー情報を更新しました！"
+    else
+      render:edit
+    end
   end
 
   def show
     @project = Project.find(params[:id])
     @comment = Comment.new
-    @comments = @project.comments
-    @comments = Comment.all.order("created_at DESC").page(params[:page]).per(5)
+    @comments = @project.comments.order("created_at DESC").page(params[:page]).per(5)
+
   end
 
   private

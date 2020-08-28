@@ -10,18 +10,18 @@
           <th><p></p></th>
       <% @users.each do |user| %>
           <tr>
-          <td>
-            <%= attachment_image_tag user, :image, :fill, 100, 100, format: 'jpeg', fallback:'no-img.jpg', size:'40x40', class: "img-circle pull-left profile-thumb" %>
-          </td>
-            <td> <%= user.id %> </td>
-            <td> <%= link_to user.family_name + user.farst_name,user_path(user.id) %> 
-            </td>
-            <td>"ナイストライ"</td>
-            <td><%= user.projects.count %>回</td>
             <td>
-              <% if user == current_user %> 
-                <%= link_to "編集", edit_user_path(user),class:"btn btn-primary" %>
-              <% end %>
+              <%= attachment_image_tag user, :image, :fill, 100, 100, format: 'jpeg', fallback:'no-img.jpg', size:'40x40', class: "img-circle pull-left profile-thumb" %>
+            </td>
+              <td> <%= user.id %> </td>
+              <td> <%= link_to user.family_name + user.farst_name,user_path(user.id) %> 
+              </td>
+              <td>"ナイストライ"</td>
+              <td><%= user.projects.count %>回</td>
+              <td>
+                <% if user == current_user %> 
+                  <%= link_to "編集", edit_user_path(user),class:"btn btn-primary" %>
+                <% end %>
             </td>
           </tr>
         <% end %>
