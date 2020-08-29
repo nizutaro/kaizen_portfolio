@@ -30,6 +30,8 @@
       <th>タイトル</th>
       <th>ステータス</th>
       <th>改善時間/年間</th>
+      <th>開始日</th>
+      <th>終了日</th>
       <th>提案者</th>
       <th>いいね・コメント</th>
       <% @projects.each do |project| %>
@@ -44,19 +46,30 @@
               <% else %>
                 <%= project.reducation_time %>分
             <% end %>
+          <td>
+            <%= project.start_date %>
+          </td>
+          <td>
+            <%= project.finish_date %>
+          </td>
           <td><%= link_to project.user.family_name + project.user.farst_name, user_path(project.user) %></td>
           <td>
             <small>
-              <% if project.favorited_by?(current_user) %>
-                <%= link_to project_favorites_path(project), method: :delete do %>
-                <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-                <%= project.favorites.count %> いいね
+              <% if user_signed_in? %>
+                <% if project.favorited_by?(current_user) %>
+                  <%= link_to project_favorites_path(project), method: :delete do %>
+                    <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+                    <%= project.favorites.count %> いいね
+                  <% end %>
+                <% else %>
+                  <%= link_to project_favorites_path(project), method: :post do %>
+                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                    <%= project.favorites.count %> いいね
+                  <% end %>
                 <% end %>
               <% else %>
-                <%= link_to project_favorites_path(project), method: :post do %>
-                  <i class="fa fa-heart-o" aria-hidden="true"></i>
-                  <%= project.favorites.count %> いいね
-                  <% end %>
+                <i class="fa fa-heart-o" aria-hidden="true"></i>
+                <%= project.favorites.count %> いいね
               <% end %>
             </small>
             <small><i class="fas fa-comment"> <%= project.comments.count %></i>件</small>

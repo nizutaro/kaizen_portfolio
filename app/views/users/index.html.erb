@@ -5,7 +5,6 @@
       <th></th>
       <th>会員id</th>
           <th>会員名</th>
-          <th>ナイストライ数</th>
           <th>提案数</th>
           <th><p></p></th>
       <% @users.each do |user| %>
@@ -16,7 +15,6 @@
               <td> <%= user.id %> </td>
               <td> <%= link_to user.family_name + user.farst_name,user_path(user.id) %> 
               </td>
-              <td>"ナイストライ"</td>
               <td><%= user.projects.count %>回</td>
               <td>
                 <% if user == current_user %> 

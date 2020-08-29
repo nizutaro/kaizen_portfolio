@@ -1,7 +1,7 @@
+
 <h2 class="page-header text-center border-bottom">職種一覧・追加</h2>
-  <div class="row center">
-    
-    <div class="col-md-4">
+  <div class="row center text-center">
+    <div class="col-md-4 col-md-offset-4">
       <%= form_with(model:[@job], local: true) do |f| %>
         <div class="form-group">
           <%= f.label :"職種名" %>
@@ -16,7 +16,7 @@
     </div>
   </div>
   <div class="row center">
-    <div class="col-md-4 ">
+    <div class="col-md-4 col-md-offset-4">
       <table class="table">
         <thead>
           <tr>
@@ -32,7 +32,9 @@
               <td><%= job.id %></td>
               <td><%= job.name %></td>
               <td><%= job.amount %></td>
-              <td><%= link_to("編集",edit_job_path(job), {class: "btn btn-success"})%></td>
+               <% if user_signed_in? %>
+                <td><%= link_to("編集",edit_job_path(job), {class: "btn btn-success"})%></td>
+              <% end %>
             </tr>
           </tbody>
         <% end %>
