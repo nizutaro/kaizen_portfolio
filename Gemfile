@@ -78,3 +78,9 @@ gem 'jquery-rails'
 gem 'chart-js-rails','~>0.1.4'
 gem 'dotenv-rails'
 gem 'gon'
+
+#AWS
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
