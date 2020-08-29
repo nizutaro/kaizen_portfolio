@@ -16,12 +16,12 @@
    </head>
 
   <body>
-    <%= image_tag 'logo_1.png' %>
     <header class="navbar navbar-fixed-top bg-light">
       <div class= "container-fluid">
         <div class= "row">
           <div class= "col-md-5 nav-header-logo" >
-            <img src="<%= asset_path "/assets/logo_1" %>" />
+            <%= image_tag asset_path("logo_1", alt: "ロゴ") %>
+
           </div>
           <div class= "col-md-2">
           </div>
