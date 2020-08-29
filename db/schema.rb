@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2020_08_22_155918) do
   create_table "projects", force: :cascade do |t|
     t.integer "user_id", default: 0, null: false
     t.string "name", default: "", null: false
-    t.text "content", default: "", null: false
+    t.text "content", null: false
     t.date "start_date", null: false
     t.date "finish_date", null: false
     t.integer "status", default: 0, null: false
@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(version: 2020_08_22_155918) do
     t.integer "number_of_month", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "job_id"
   end
 
   create_table "users", force: :cascade do |t|
