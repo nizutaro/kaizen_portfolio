@@ -30,3 +30,6 @@
 ### 主な利用シーン
 
 ・会社で解決したい事象があったときに投稿し利用する。
+
+###　機能一覧
+https://docs.google.com/spreadsheets/d/1vOelOPR-K3nAX49vZ8VDxQhblMHYfFEr-gAP3W6F6bs/edit#gid=0
