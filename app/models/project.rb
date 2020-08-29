@@ -1,7 +1,7 @@
 class Project < ApplicationRecord
   belongs_to :user
   
-  has_many  :jobs, dependent: :destroy
+  belongs_to  :job
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   

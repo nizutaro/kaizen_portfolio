@@ -1,5 +1,5 @@
 class Job < ApplicationRecord
-  belongs_to :project
+  has_many :projects, dependent: :destroy
   
   validates :name, length: {maximum: 30}
   validates :amount, presence: true

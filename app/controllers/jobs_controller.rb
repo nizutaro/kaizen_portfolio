@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :authenticate_user!,excepst: [:index]
+  #before_action :authenticate_user!
   def index
     @job = Job.new
     @jobs = Job.all
@@ -8,10 +8,10 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     if @job.save
-      redirect_to jobs_path
       flash[:notice] = "登録しました！"
+      redirect_to jobs_path
     else
-      @job = Job.new
+      #@job = Job.new
       @jobs = Job.all
       flash.now[:danger] = "登録に失敗しました！"
       render :index
