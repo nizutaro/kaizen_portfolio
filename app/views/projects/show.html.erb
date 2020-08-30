@@ -19,8 +19,7 @@
       
       <tr>  
         <td>
-            <!--
-             attachment_image_tag @project.user, :image, :fill, 100, 100, format: 'jpeg', fallback:image-url('no-img.jpg'), size:'40x40', class: "img-circle pull-left profile-thumb" %> -->
+            <%= attachment_image_tag @project.user, :image, :fill, 100, 100, format: 'jpeg', fallback:image_path('no-img.jpg'), size:'40x40', class: "img-circle pull-left profile-thumb" %>
           <%= @project.user.family_name + @project.user.farst_name %>
         </td>
       </tr>
