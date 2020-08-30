@@ -20,14 +20,13 @@
       <div class= "container-fluid">
         <div class= "row">
           <div class= "col-md-5 nav-header-logo" >
-            <%= image_tag "/assets/logo_1" %>
-
+            <img src="<%= asset_path "/assets/logo_1" %>" />
           </div>
           <div class= "col-md-2">
           </div>
           <div class= "col-md-5 nav-header-list">
             <% if user_signed_in? %>
-              <%= link_to("マイペーージ",user_path(current_user.id)) %>
+              <%= link_to("マイページ",user_path(current_user.id)) %>
               <%= link_to("提案する",new_project_path) %>
               <%= link_to("提案一覧",projects_path) %>
               <%= link_to("会員一覧",users_path) %>
