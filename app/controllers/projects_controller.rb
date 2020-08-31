@@ -15,7 +15,6 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.user_id = current_user.id
 
-    #取得したパラメータを計算させたい
     job = Job.find(project_params[:job_id])
     job_amount = job.amount
     @project.total_amount = job_amount * @project.number_of_month * @project.reducation_time

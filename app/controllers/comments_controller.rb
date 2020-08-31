@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     @project = Project.find(params[:project_id])
     @comment = @project.comments.build(comment_params)
     @comment.user_id = current_user.id
-  
+
     if @comment.save
       @comments= @project.comments
     end
@@ -12,7 +12,6 @@ class CommentsController < ApplicationController
   
   def destroy
     @project =  Project.find(params[:project_id])
-    #@comment = Project.find(params[:id])
     @comments = Comment.find(params[:id])
     @comments.destroy
   end

@@ -23,9 +23,9 @@
           <div class= "col-md-5 nav-header-logo" >
              <%= image_tag 'logo_1.png' %>
           </div>
-          <div class= "col-md-2">
+          <div class= "col-md-1">
           </div>
-          <div class= "col-md-5 nav-header-list">
+          <div class= "col-md-6 nav-header-list">
             <% if user_signed_in? %>
               <%= link_to("マイページ",user_path(current_user.id)) %>
               <%= link_to("提案する",new_project_path) %>

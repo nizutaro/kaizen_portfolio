@@ -1,22 +1,29 @@
 <div class="row">
-  <div class="col-md-12 about_img text-center">
-    <h2>改善文化を創るアプリ</h2>
-         <%= image_tag 'about.jpg' %>
+  <div class="col-md-12 about text-center">
+    <h1>誰でも気軽に利用できる改善文化作成アプリケーション</h1><br>
+    <h2><%= link_to("新規登録",new_user_registration_path) %></h2><br>
+       <h2><%= link_to("ゲストとして観覧",projects_path) %></h2>
   </div>
 </div>
 <div class="row">
-  <div class="explanation">
-    <div class="col-lg-4">
+ <div class="col-md-12 title">
+  <h2>KAIZENの特徴</h2>
+ </div>
+</div>
+<div class="row explanation">
+    <div class="col-md-4">
       <h2>改善文化を創る</h2>
-      <p>誰もが簡単に利用が可能で、継続的に利用することで改善文化を醸成するアプリです。</p>
-    </div><!-- /.col-lg-4 -->
-    <div class="col-lg-4">
+      <p>誰もが簡単に利用が可能で、継続的に利用することで<br>改善文化を醸成することが可能です。</p>
+      <%= image_tag('undraw_co-workers_ujs6.png') %>
+    </div>
+    <div class="col-md-4">
       <h2>簡単なフォーマット</h2>
-      <p>誰でも簡単に投稿ができ、数値化することで誰でも効果が確認できます！</p>
-    </div><!-- /.col-lg-4 -->
-    <div class="col-lg-4">
+      <p>誰でも簡単に投稿が可能であり、共通の指標によって改善効果を確認します。</p>
+      <%= image_tag('undraw_visual_data_b1wx.png') %>
+    </div>
+    <div class="col-md-4">
       <h2>仕事の見える化</h2>
-      <p>投稿を続けることによって、具体的にどういった仕事なのか共有ができます。</p>
-    </div><!-- /.col-lg-4 -->
-  </div>
-</div><!-- /.row -->
+      <p>投稿を継続していくことにより<br>具体的にどういった作業が社内で行われているのか共有ができます。<br>組織のワークフロー見える化されます。</p>
+      <%= image_tag('undraw_Group_chat_unwm.png') %>
+    </div>
+</div>
