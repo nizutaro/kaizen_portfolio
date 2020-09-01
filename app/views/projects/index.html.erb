@@ -8,7 +8,7 @@
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels:  <%= @user.to_json.html_safe %>,
+            labels:  <%= @user_name.to_json.html_safe %>,
             datasets: [{
                 label: "削減総時間",
                 data: <%= @data %>,

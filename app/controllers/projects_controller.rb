@@ -2,14 +2,9 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.page(params[:page]).reverse_order
     #chart.js
-    #@user_data = Project.group(:user_id)
-
-    @user = Project.group(:user_id).pluck(:user_id)
-    @data = Project.group(:user_id).pluck(:reducation_time)
-    #@user.each do |user|
-    #  user.find_by(user)
-    #end
-
+    @user = Project.group(:user_id).pluck(:user_id) #取得idを元にUserテーブルのカラム
+    @user_name = User.where(id: @user).pluck(:family_name ,:farst_name)
+    @data = Project.group(:user_id).pluck(:reducation_time) #Y軸のデータです。
   end
   
   def new
