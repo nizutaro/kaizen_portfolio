@@ -2,8 +2,14 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.page(params[:page]).reverse_order
     #chart.js
-  @user_data = Project.group(:user_id)
-  @data = Project.group(:user_id).pluck(:reducation_time)
+    #@user_data = Project.group(:user_id)
+
+    @user = Project.group(:user_id).pluck(:user_id)
+    @data = Project.group(:user_id).pluck(:reducation_time)
+    #@user.each do |user|
+    #  user.find_by(user)
+    #end
+
   end
   
   def new
@@ -14,7 +20,6 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.user_id = current_user.id
-
     job = Job.find(project_params[:job_id])
     job_amount = job.amount
     @project.total_amount = job_amount * @project.number_of_month * @project.reducation_time
