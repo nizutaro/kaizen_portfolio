@@ -1,10 +1,13 @@
 class ProjectsController < ApplicationController
+
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  
   def index
     @projects = Project.page(params[:page]).reverse_order
     #chart.js
     @user = Project.group(:user_id).pluck(:user_id) #取得idを元にUserテーブルのカラム
     @user_name = User.where(id: @user).pluck(:family_name ,:farst_name)
-    @data = Project.group(:user_id).pluck(:reducation_time) #Y軸のデータです。
+    @data = Project.group(:user_id).pluck(:reducation_time)
   end
   
   def new
