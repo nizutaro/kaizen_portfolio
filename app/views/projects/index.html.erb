@@ -41,10 +41,10 @@
           <td><%= project.status %></td>
           <td>
             <% if project.reducation_time >= 60 %>
-                <%= project.reducation_time / 60 %>時間 
-                <%= project.reducation_time % 60 %>分</td>
+                <%= project.reducation_time * 12 / 60  %>時間 
+                <%= project.reducation_time * 12  % 60 %>分</td>
               <% else %>
-                <%= project.reducation_time %>分
+                <%= project.reducation_time * 12%>分
             <% end %>
           <td>
             <%= project.start_date %>
