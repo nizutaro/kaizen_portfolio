@@ -1,29 +1,40 @@
 <div class="row">
   <div class="col-md-12 about text-center">
-    <h1>誰でも気軽に利用できる組織に改善文化を創るアプリ</h1><br>
-    <h2><%= link_to("新規登録",new_user_registration_path) %></h2><br>
-       <h2><%= link_to("ゲストとして観覧",projects_path) %></h2>
+    <div class="about-title">誰でも気軽に利用できる組織に改善文化を創るアプリ<br></div>
+    <div class="btn"><%= link_to("会員登録",new_user_registration_path) %></div><br>
+       <div class="btn"><%= link_to("ゲストとして観覧",projects_path) %></div>
   </div>
 </div>
 <div class="row">
- <div class="col-md-12 title">
-  <h2>KAIZENの特徴</h2>
- </div>
-</div>
-<div class="row explanation">
+ <div class="col-md-12">
+  <h2 class="heading">KAIZENの特徴</h2>
+
+  <div class="explanation">
     <div class="col-md-4">
-      <h2>改善文化を創る</h2>
-      <p>誰もが簡単に利用が可能で、継続的に利用することで<br>改善文化を醸成することが可能です。</p>
+      <h2 class="structure-title">改善文化を創る</h2>
+      <p class="structure-text">誰でも簡単に利用が可能であり、<br>継続的に利用することで改善文化を醸成することが可能です。</p>
       <%= image_tag('undraw_co-workers_ujs6.png') %>
     </div>
     <div class="col-md-4">
-      <h2>簡単なフォーマット</h2>
-      <p>誰でも簡単に投稿が可能であり、共通の指標によって改善効果を確認します。</p>
+      <h2 class="text-center">簡単なフォーマット</h2>
+      <p class="structure-text">簡単で共通のフォーマットで投稿が可能です。<br>
+      共通の指標によって改善効果を確認します。</p>
       <%= image_tag('undraw_visual_data_b1wx.png') %>
     </div>
     <div class="col-md-4">
-      <h2>仕事の見える化</h2>
-      <p>投稿を継続していくことにより<br>具体的にどういった作業が社内で行われているのか共有ができます。<br>組織のワークフロー見える化されます。</p>
+      <h2 class="structure-title">仕事の見える化</h2>
+      <p class="structure-text">投稿を継続していくことにより具体的な作業が見える化<br>組織のワークフローの共有ができます。</p>
       <%= image_tag('undraw_Group_chat_unwm.png') %>
     </div>
-</div>
+  </div>
+ </div>
+
+  <div class="row">
+      <div class="col-md-12">
+    <section id="sign_up">
+        <h2 class="heading">会員登録</h2>
+        <div class="btn"><%= link_to("新規登録",new_user_registration_path) %></div><br>
+        <p class="heading-text">登録すると投稿・コメント・いいねができます！</p>
+    </section>
+      </div>
+  </div>

@@ -36,8 +36,8 @@
               <%= link_to("about",root_path)%>
               <%= link_to("提案一覧",projects_path) %>
               <%= link_to("会員一覧",users_path) %>
-              <%= link_to("新規登録", new_user_registration_path)%>
               <%= link_to("ログイン", new_user_session_path)%>
+              <%= link_to("会員登録", new_user_registration_path)%>
             <% end %>
           </div>  
         </div>
@@ -46,6 +46,9 @@
     <div class= "body1 container-fluid">
       <p class=" text-center"><%= notice %></p>
       <%= yield %>
+      <footer>
+        <p class="copyright">&copy; 2020 yuta niduka</p>
+      </footer>
     </div>
   </body>
 </html>
