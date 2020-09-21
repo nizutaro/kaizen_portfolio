@@ -31,6 +31,7 @@
   padding: 10px;
   border-radius: 30px;
   text-decoration: none;
+  position: relative;
 
   &:hover {
     color: #fff;
@@ -111,6 +112,10 @@
   opacity: 0.8;
   text-align: center;
 
+  * {
+    display: block;
+  }
+
   .about-title {
     font-size: 50px;
     padding-top: 200px;
@@ -136,6 +141,9 @@
     height: 3px;
     margin: 8px auto 0 auto;
     background-color: #fec559;
+    .a {
+      display: block;
+    }
   }
 }
 .explanation {
@@ -164,6 +172,10 @@
 
   .btn {
     @include top_page_btn();
+  }
+
+  a {
+    display: block;
   }
 }
 
