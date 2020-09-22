@@ -40,7 +40,7 @@
           <td><%= link_to project.name ,project_path(project) %></td>
           <td><%= project.status %></td>
           <td>
-            <% if project.reducation_time >= 60 %>
+            <% if project.reducation_time * 12 >= 60 %>
                 <%= project.reducation_time * 12 / 60  %>時間 
                 <%= project.reducation_time * 12  % 60 %>分</td>
               <% else %>

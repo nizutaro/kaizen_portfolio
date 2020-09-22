@@ -34,23 +34,24 @@
         </tr>
         <tr>
         <td>作業の月回数：<%= @project.number_of_month %>回</td>
-        </tr>
+      </tr>
+      <tr>
         <td>１回当たりの削減時間：
            <% if @project.reducation_time >= 60 %>
               <%= @project.reducation_time / 60 %>時間 
-              <%= @project.reducation_time % 60 %>分</td>
+              <%= @project.reducation_time % 60 %>分(1回)
             <% else %>
-              <%= @project.reducation_time %>分
+              <%= @project.reducation_time %>分(1回)  
           <% end %>
-          年間の削減時間：
+          年間削減：
            <% if @project.reducation_time * 12 >= 60 %>
               <%= @project.reducation_time * 12 / 60 %>時間 
-              <%= @project.reducation_time * 12 % 60 %>分</td>
+              <%= @project.reducation_time * 12 % 60 %>分
             <% else %>
               <%= @project.reducation_time * 12 %>分
           <% end %>
         </td>
-      <tr>
+      </tr>
       <tr>
         <td>いいね <i class="fa fa-heart" aria-hidden="true" style="color: red;">
           <%= @project.favorites.count %></i>件
