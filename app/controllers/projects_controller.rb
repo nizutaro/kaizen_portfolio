@@ -17,6 +17,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
+    
     @project.user_id = current_user.id
     job = Job.find(project_params[:job_id])
     job_amount = job.amount
@@ -56,4 +57,5 @@ class ProjectsController < ApplicationController
   def project_params
     params.require(:project).permit(:user_id,:name, :content,:job_id ,:start_date, :finish_date, :status, :reducation_time, :total_amount, :reducation_amount,:number_of_month)
   end
+
 end

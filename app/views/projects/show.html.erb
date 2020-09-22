@@ -35,12 +35,19 @@
         <tr>
         <td>作業の月回数：<%= @project.number_of_month %>回</td>
         </tr>
-        <td>改善による削減時間：
+        <td>１回当たりの削減時間：
            <% if @project.reducation_time >= 60 %>
               <%= @project.reducation_time / 60 %>時間 
               <%= @project.reducation_time % 60 %>分</td>
             <% else %>
               <%= @project.reducation_time %>分
+          <% end %>
+          年間の削減時間：
+           <% if @project.reducation_time * 12 >= 60 %>
+              <%= @project.reducation_time * 12 / 60 %>時間 
+              <%= @project.reducation_time * 12 % 60 %>分</td>
+            <% else %>
+              <%= @project.reducation_time * 12 %>分
           <% end %>
         </td>
       <tr>

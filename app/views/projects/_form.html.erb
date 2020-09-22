@@ -18,7 +18,8 @@
     </div>
     <div class="form-group">
       <%= f.label :"削減時間/１回当たり：" %>
-      <%= f.text_field :reducation_time, class: 'form-control' %>
+      <%= printf%>
+      <%= f.select :reducation_time,[*0..30000], class: 'form-control' %>分
     </div>
     <div class="form-group">
       <%= f.label :"作業に掛かっている金額：" %>

@@ -8,6 +8,10 @@ class Project < ApplicationRecord
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
+
+  def reducation
+    (reducation_hour * 60) + (reducation_minutes)
+  end
   paginates_per 5
   enum status: {"アイデア募集中":0, "アクション中":1, "未達成":2, "達成":3}
 end
