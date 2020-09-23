@@ -1,32 +1,32 @@
 <div class="col-md-4 col-md-offset-4">
   <%= form_with(model:[project], local: true) do |f| %>
     <div class="form-group">
-      <%= f.label :"プロジェクト名：" %>
+      <%= f.label :"プロジェクト名" %> <span class="label label-danger">必須</span>
       <%= f.text_field :name, class: 'form-control' %>
     </div>
     <div class="form-group">
-      <%= f.label :"内容：" %>
+      <%= f.label :"内容" %><span class="label label-danger">必須</span>
       <%= f.text_area :content, class: 'form-control' %>
     </div>
     <div class="form-group">
-      <%= f.label :"職種：" %>
+      <%= f.label :"職種" %>
       <%= f.collection_select :job_id, Job.all, :id, :name, class:"form-control" %>
     </div>
     <div class="form-group">
-      <%= f.label :"作業の月平均回数：" %>
-      <%= f.select :number_of_month, [*1..31], class: 'form-control' %>
+      <%= f.label :"作業の月回数 約" %>
+      <%= f.select :number_of_month, [*1..31], class: 'form-control' %>回
     </div>
     <div class="form-group">
-      <%= f.label :"削減時間/１回当たり：" %>
+      <%= f.label :"１回当たりの削減時間" %>
       <%= printf%>
       <%= f.select :reducation_time,[*0..30000], class: 'form-control' %>分
     </div>
     <div class="form-group">
-      <%= f.label :"作業に掛かっている金額：" %>
+      <%= f.label :"作業で消費する備品代" %>
       <%= f.text_field :total_amount, class: 'form-control' %>
     </div>
     <div class="form-group">
-      <%= f.label :"開始日：" %>
+      <%= f.label :"開始予定日" %>
       <%= raw sprintf(
         f.date_select(:"start_date",   
         use_month_numbers: true,
@@ -37,7 +37,7 @@
             '年 ', '月 ' , class: 'form-control') + '日'%>
     </div>
     <div class="form-group">
-      <%= f.label :"終了日：" %>
+      <%= f.label :"終了予定日" %>
       <%= raw sprintf(
       f.date_select(:"finish_date",   
       use_month_numbers: true,
@@ -49,11 +49,11 @@
     </div>
 
     <div class="form-group"> 
-      <%= f.label :"ステータス：" %>
+      <%= f.label :"ステータス" %>
       <%= f.select :status, Project.statuses.keys.to_a %>
     </div>
     <div class="btn-position">
-      <%= f.submit '確定', class:"btn btn-primary" %>
+      <%= f.submit '投稿する', class:"btn btn-primary" %>
     </div>
   <% end %>
 </div>

@@ -1,6 +1,6 @@
 <h2 class="page-header text-center border-bottom">提案一覧</h2>
 <div class="row">
-  <div class="col-md-8 col-md-offset-2">
+  <div class="col-md-10 col-md-offset-1">
   <!-- Graphs -->
   <canvas id="myChart" width="900" height="400"></canvas>
   <script>
@@ -20,7 +20,7 @@
         options: {
             title:  {
               display: true,
-              text: "ユーザー別改善時間"
+              text: "ユーザー別改善時間/年"
             }
         }
     });
@@ -29,6 +29,8 @@
       <th>No.</th>
       <th>タイトル</th>
       <th>ステータス</th>
+      <th>回数/月</th>
+      <th>改善時間/回</th>
       <th>改善時間/年間</th>
       <th>開始日</th>
       <th>終了日</th>
@@ -39,12 +41,21 @@
           <td><%= project.id %></td>
           <td><%= link_to project.name ,project_path(project) %></td>
           <td><%= project.status %></td>
+          <td><%= project.number_of_month %>回</td>
           <td>
-            <% if project.reducation_time * 12 >= 60 %>
-                <%= project.reducation_time * 12 / 60  %>時間 
-                <%= project.reducation_time * 12  % 60 %>分</td>
+            <% if project.reducation_time >= 60 %>
+              <%= project.reducation_time / 60  %>時間 
+              <%= project.reducation_time  % 60 %>分</td>
+            <% else %>
+              <%= project.reducation_time %>分
+            <% end %>
+          </td>
+          <td>
+            <% if project.number_of_month * project.reducation_time * 12 >= 60 %>
+                <%= project.number_of_month * project.reducation_time * 12 / 60  %>時間 
+                <%= project.number_of_month * project.reducation_time * 12  % 60 %>分</td>
               <% else %>
-                <%= project.reducation_time * 12%>分
+                <%= project.number_of_month * project.reducation_time * 12%>分
             <% end %>
           <td>
             <%= project.start_date %>

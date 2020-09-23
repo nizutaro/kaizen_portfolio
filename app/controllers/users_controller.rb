@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update, :destroy]
   def index
     @users = User.page(params[:page]).reverse_order
-    
+    # @reducation_time = Project.group(:user_id).sum(:reducation_time).values
+    # binding.pry
   end
 
   def show

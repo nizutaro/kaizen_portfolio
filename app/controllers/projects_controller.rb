@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
     #chart.js
     @user = Project.group(:user_id).pluck(:user_id) #取得idを元にUserテーブルのカラム
     @user_name = User.where(id: @user).pluck(:family_name ,:farst_name)
-    @data = Project.group(:user_id).sum(:reducation_time).values
+    @data = Project.group(:user_id).sum(:reducation_time).values #時間を抽出
   end
   
   def new
