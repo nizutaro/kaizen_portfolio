@@ -36,6 +36,7 @@
       <th>終了日</th>
       <th>提案者</th>
       <th>いいね・コメント</th>
+
       <% @projects.each do |project| %>
         <tr>
           <td><%= project.id %></td>
@@ -43,7 +44,7 @@
           <td><%= project.status %></td>
           <td><%= project.number_of_month %>回</td>
           <td>
-            <% if project.reducation_time >= 60 %>
+            <% if project.reducation_time >= 60  %>
               <%= project.reducation_time / 60  %>時間 
               <%= project.reducation_time  % 60 %>分</td>
             <% else %>
