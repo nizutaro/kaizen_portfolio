@@ -26,42 +26,51 @@
     });
   </script>
     <table class="table table-striped table-inverse">
-      <th>No.</th>
-      <th>タイトル</th>
-      <th>ステータス</th>
-      <th>回数/月</th>
-      <th>改善時間/回</th>
-      <th>改善時間/年間</th>
-      <th>開始日</th>
-      <th>終了日</th>
-      <th>提案者</th>
-      <th>いいね・コメント</th>
-
+        <th>No.</th>
+        <th>タイトル</th>
+        <th>ステータス</th>
+        <th>職種<br>単価/時</th>
+        <th>回数/月</th>
+        <th>改善時間</th>
+        <th>開始予定<br>終了予定</th>
+        <th>提案者</th>
+        <th>いいね・コメント</th>
+        <th></th>
       <% @projects.each do |project| %>
         <tr>
           <td><%= project.id %></td>
           <td><%= link_to project.name ,project_path(project) %></td>
           <td><%= project.status %></td>
+          <td><%= project.job.name %><br><%= project.job.amount %>円</td>
+          
           <td><%= project.number_of_month %>回</td>
           <td>
-            <% if project.reducation_time >= 60  %>
-              <%= project.reducation_time / 60  %>時間 
-              <%= project.reducation_time  % 60 %>分</td>
+            回:
+              <% if project.reducation_time >= 60  %>
+                <%= project.reducation_time / 60  %>時間 
+                <%= project.reducation_time  % 60 %>分
+              <% else %>
+                <%= project.reducation_time %>分
+              <% end %>
+            <br>
+            月:
+            <% if project.number_of_month * project.reducation_time >= 60 %>
+              <%= project.number_of_month * project.reducation_time / 60  %>時間 
+              <%= project.number_of_month * project.reducation_time % 60 %>分
             <% else %>
-              <%= project.reducation_time %>分
+              <%= project.number_of_month * project.reducation_time %>分
             <% end %>
-          </td>
-          <td>
-            <% if project.number_of_month * project.reducation_time * 12 >= 60 %>
+            <br>
+            年:
+              <% if project.number_of_month * project.reducation_time * 12 >= 60 %>
                 <%= project.number_of_month * project.reducation_time * 12 / 60  %>時間 
-                <%= project.number_of_month * project.reducation_time * 12  % 60 %>分</td>
+                <%= project.number_of_month * project.reducation_time * 12  % 60 %>分
               <% else %>
                 <%= project.number_of_month * project.reducation_time * 12%>分
-            <% end %>
-          <td>
-            <%= project.start_date %>
+              <% end %>
           </td>
           <td>
+            <%= project.start_date %><br>
             <%= project.finish_date %>
           </td>
           <td><%= link_to project.user.family_name + project.user.farst_name, user_path(project.user) %></td>
@@ -88,7 +97,7 @@
           </td>
           <td>
             <% if project.user == current_user %>
-              <%= link_to "編集する",edit_project_path(project), {class: "btn btn-success"} %>
+              <%= link_to "編集",edit_project_path(project), {class: "btn btn-success"} %>
             <% end %>
           </td>
         </tr>

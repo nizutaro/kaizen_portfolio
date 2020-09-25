@@ -68,6 +68,8 @@
       <% if user_signed_in? %>
           <%= render partial: 'comments/form', locals: { project: @project, comment: @comment } %>
       <% end %>
-      <%= paginate @comments %>
+  </div>
+  <div class="pagenate">
+    <%= paginate @comments %>
   </div>
 </div>

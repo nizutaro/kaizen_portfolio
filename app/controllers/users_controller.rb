@@ -8,8 +8,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @projects = @user.projects
+    #@projects = @user.projects
     @projects_count = Project.where(user_id: @user).count
+
+    @projects = @user.projects.order("created_at DESC").page(params[:page]).per(10)
+
+
   end
 
   def edit
