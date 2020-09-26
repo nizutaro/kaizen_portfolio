@@ -45,7 +45,7 @@
     "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   border-bottom: 1px solid #e5e9ef;
-  padding: 0.5rem 1rem;
+  padding: 1rem 1rem;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
   background-color: #fff;
 }
@@ -93,6 +93,7 @@
 
 .main {
   text-align: center;
+  margin-top: 100px;
 }
 
 //aboutページ
@@ -188,16 +189,37 @@ footer {
   height: 60px;
   background-color: #67635e;
   margin-bottom: 0;
-  .col-md-4 {
+  .footer-list a {
+    float: left;
+  }
+
+  .left-list {
+    padding: 10px 0;
+  }
+  .right-list {
+    list-style: none;
+  }
+  .center-list {
     font-size: 16px;
+  }
+  .col-md-4 {
     color: #fafafa;
     text-align: center;
-    padding-top: 20px;
+    line-height: 60px;
 
     a {
       padding: 5px;
+      color: #a39d96;
     }
   }
+
+  ul {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+  }
+
   .fab {
     font-size: 30px;
     text-decoration: none;

@@ -34,6 +34,11 @@
         <th>提案者</th>
         <th>いいね・コメント</th>
         <th></th>
+
+        <%= reducation_name %>
+        <% hour, minutes = reducation %>
+        <%= hour %>
+        <%= minutes %>
       <% @projects.each do |project| %>
         <tr>
           <td><%= project.id %></td>

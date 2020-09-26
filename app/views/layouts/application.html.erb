@@ -14,11 +14,11 @@
    </head>
 
   <body>
-    <header class="navbar navbar-fixed-top bg-light">
-      <div class= "container-fluid">
-        <div class= "row">
+    <div class="container-fluid">
+      <div class= "row">
+        <header class="navbar navbar-fixed-top bg-light">
           <div class= "col-md-5 nav-header-logo" >
-             <%= link_to(image_tag('logo_1.png'), root_path) %>
+            <%= link_to(image_tag('logo_1.png'), root_path) %>
           </div>
           <div class= "col-md-1">
           </div>
@@ -37,23 +37,30 @@
               <%= link_to("ログイン", new_user_session_path)%>
               <%= link_to("会員登録", new_user_registration_path)%>
             <% end %>
-          </div>  
-        </div>
+          </div>
+        </header>
       </div>
-    </header>
-    <div class= "container-fluid text-center">
+    </div>
+    <div class="container-fluid text-center  main">
       <%= yield %>
     </div>
-    <footer>
-      <div class="row">
-        <div class="col-md-4">
-          <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="fab fa-twitter-square" data-hashtags="KAIZENを使ってみよう！" data-show-count="false"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-          <a href="https://github.com/nizutaro/kaizen_portfolio" class="fab fa-github"></a>
+    <div class="row">
+      <footer>
+        <div class="col-md-4 left-list">
+          <ul class="footer-list">
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="fab fa-twitter-square" data-hashtags="KAIZENを使ってみよう！" data-show-count="false"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <a href="https://github.com/nizutaro/kaizen_portfolio" class="fab fa-github"></a>
+          </ul>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 center-list">
           <p class="copyright">&copy; 2020 yuta niduka</p>
         </div>
-      </div>
-    </footer>
+        <div class="col-md-4 right-list">
+          <ul>
+            <li><%=link_to("管理者ページ", new_admin_session_path) %></li>
+          </ul>
+        <div>
+      </footer>
+    </div>
   </body>
 </html>
