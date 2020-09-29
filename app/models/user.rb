@@ -12,4 +12,7 @@ class User < ApplicationRecord
   validates :family_name, presence: true, length: { maximum: 15 }
   validates :farst_name, presence: true, length: { maximum: 15 }
 
+  def full_name
+    return self.family_name + self.farst_name
+  end
 end
