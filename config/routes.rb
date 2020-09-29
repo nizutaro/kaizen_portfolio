@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
  
+  namespace :admins do
+    get 'top' => 'homes#top', as:'top'  
+  end
   devise_for :admins, controllers: {
   sessions:      'admins/sessions'
 }
+
+
   get 'jobs/index'
   get 'jobs/edit'
   devise_for :users
