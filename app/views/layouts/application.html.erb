@@ -28,7 +28,7 @@
               <%= link_to("マイページ",user_path(current_user.id)) %>
               <%= link_to("提案する",new_project_path) %>
               <%= link_to("提案一覧",projects_path) %>
-              <%= link_to("会員一覧",users_path) %>
+              <%= link_to("会員一覧",users_path, 'data-turbolinks': false ) %>
               <%= link_to("職業一覧",jobs_path) %>
               <%= link_to(" ログアウト", destroy_user_session_path) %>
             <% else %>

@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update, :destroy]
   def index
-    @users = User.page(params[:page]).reverse_order
-    # @reducation_time = Project.group(:user_id).sum(:reducation_time).values
-    # binding.pry
+    #@users = User.page(params[:page]).reverse_order
+    #@users = User.where(activated: true).paginate(page: params[:page]).search(params[:search])
+    @users = User.all.page(params[:page]).search(params[:search])
   end
 
   def show

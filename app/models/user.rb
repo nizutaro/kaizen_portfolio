@@ -12,6 +12,14 @@ class User < ApplicationRecord
   validates :family_name, presence: true, length: { maximum: 15 }
   validates :farst_name, presence: true, length: { maximum: 15 }
 
+  def self.search(search)
+    if search
+      #full_name = self.family_name & self.farst_name
+      where(['(farst_name LIKE ?) OR (family_name LIKE ?)', "%#{search}%","%#{search}%"])
+    else
+      all
+    end
+  end
   def full_name
     return self.family_name + self.farst_name
   end

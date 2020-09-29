@@ -14,6 +14,7 @@ class Project < ApplicationRecord
     favorites.where(user_id: user.id).exists?
   end
   
+  
 def reducation
   amount = self.reducation_time * ( self.job.amount / 60)
   if self.reducation_time >= 60 
@@ -34,7 +35,7 @@ def reducation_month
       return "#{hour}時間#{min}分 #{amount}円"
     else
       min = self.number_of_month * self.reducation_time
-      return "#{min}分 #{amount}円"
+      return ":#{min}分 #{amount}円"
   end
 end
 
