@@ -17,7 +17,6 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    
     @project.user_id = current_user.id
     job = Job.find(project_params[:job_id])
     job_amount = job.amount

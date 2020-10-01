@@ -1,4 +1,4 @@
-<div class="row show-page">
+<div class="row">
   <div class="col-md-4">
     <h2>プロジェクト詳細</h2>
     <table class="table table-striped">
@@ -6,28 +6,16 @@
       <tr><td>No.<%= @project.id %> プロジェクト名:<%= @project.name %></td></tr>
       <tr><td>提案内容:<%= @project.content %></td></tr>
       <tr><td>提案者:<%= attachment_image_tag @project.user, :image, :fill, 100, 100, format: 'jpeg', fallback:image_path('no-img.jpg'), size:'40x40', class: "img-circle pull-left profile-thumb" %>
-      <%= @project.user.family_name + @project.user.farst_name %></td>
+      <%= @project.full_name %></td>
       </tr>
       <tr><td>ステータス:<%= @project.status %></td></tr>
       <tr><td>開始予定日:<%= @project.start_date %></td></tr>
-      <tr><td>終了予定日:<%= @project.start_date %></td></tr>
+      <tr><td>終了予定日:<%= @project.finish_date %></td></tr>
       <tr><td>作業の月回数：<%= @project.number_of_month %>回</td></tr>
       <tr>
-        <td>１回当たりの削減時間：
-          <% if @project.reducation_time >= 60 %>
-            <%= @project.reducation_time / 60 %>時間 
-            <%= @project.reducation_time % 60 %>分/回
-          <% else %>
-            <%= @project.reducation_time %>分/回  
-          <% end %>
-         
-          年間削減：
-          <% if @project.number_of_month * @project.reducation_time * 12 >= 60 %>
-            <%=@project.number_of_month * @project.reducation_time * 12 / 60  %>時間 
-            <%= @project.number_of_month * @project.reducation_time * 12  % 60 %>分</td>
-          <% else %>
-            <%= project.number_of_month * project.reducation_time * 12%>分
-          <% end %>
+        <td>１回の削減時間：<%= @project.reducation %><br>
+           月の削減時間:<%= @project.reducation_month %><br>
+           年間の削減時間:<%= @project.reducation_year %>
         </td>
       </tr>
       <tr>

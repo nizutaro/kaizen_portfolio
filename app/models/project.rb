@@ -13,8 +13,7 @@ class Project < ApplicationRecord
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
-  
-  
+
 def reducation
   amount = self.reducation_time * ( self.job.amount / 60)
   if self.reducation_time >= 60 
