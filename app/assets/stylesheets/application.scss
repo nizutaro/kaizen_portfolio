@@ -20,18 +20,21 @@
 
 @mixin top_page_btn {
   text-align: center;
-  float: none;
-  font-size: 15px;
+  font-size: 24px;
   margin: 0 auto;
   margin-top: 10px;
-  width: 200px;
-  color: white;
-  background: #d9edf7d4;
-  border: 1px solid white;
   padding: 10px;
-  border-radius: 30px;
+  border-radius: 5px;
   text-decoration: none;
   position: relative;
+  font-weight: bold;
+
+  a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    width: 260px;
+  }
 
   &:hover {
     color: #fff;
@@ -105,9 +108,7 @@
   color: white;
   vertical-align: middle;
   border-bottom: 40px;
-  background-image: image-url("about.jpg");
   background-size: cover;
-  opacity: 0.8;
   text-align: center;
 
   * {
@@ -120,9 +121,30 @@
     font-family: "Raleway", sans-serif;
     text-shadow: 1px 1px 1px black;
   }
+}
+
+.about-img1 {
+  background-image: image-url("about1.jpg");
+}
+.about-img2 {
+  background-image: image-url("about2.jpg");
+}
+.about-img3 {
+  background-image: image-url("about3.jpg");
+}
+.about-img4 {
+  background-image: image-url("about4.jpg");
+}
+
+.login {
+  position: absolute;
+  left: 50%;
+  top: 50%;
 
   .btn {
     @include top_page_btn();
+    border: 2px solid white;
+    margin-left: -50px;
   }
 }
 
@@ -170,10 +192,10 @@
 
   .btn {
     @include top_page_btn();
-  }
-
-  a {
-    display: block;
+    background-color: green;
+    a {
+      color: white;
+    }
   }
 }
 
