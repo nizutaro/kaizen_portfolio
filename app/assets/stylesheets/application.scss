@@ -114,13 +114,6 @@
   * {
     display: block;
   }
-
-  .about-title {
-    font-size: 50px;
-    padding-top: 200px;
-    font-family: "Raleway", sans-serif;
-    text-shadow: 1px 1px 1px black;
-  }
 }
 
 .about-img1 {
@@ -138,13 +131,18 @@
 
 .login {
   position: absolute;
-  left: 50%;
-  top: 50%;
-
+  left: 10%;
+  .about-title {
+    font-size: 50px;
+    padding-top: 200px;
+    font-size: 55px;
+    color: white;
+    font-family: "Raleway", sans-serif;
+    text-shadow: 1px 1px 1px black;
+  }
   .btn {
     @include top_page_btn();
     border: 2px solid white;
-    margin-left: -50px;
   }
 }
 
