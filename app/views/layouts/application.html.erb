@@ -23,7 +23,7 @@
           <div class= "col-md-1">
           </div>
           
-          <div class= "col-md-6 nav-header-list">
+          <div class= "col-md-6 nav-header-list ">
             <% if user_signed_in? %>
               <%= link_to("マイページ",user_path(current_user.id)) %>
               <%= link_to("提案する",new_project_path) %>
@@ -45,13 +45,11 @@
     <div class="container-fluid text-center  main">
       <%= yield %>
     </div>
-    <div class="row" id="footer">
-      <footer>
-        <div class="col-md-4 left-list">
-          <ul class="footer-list">
-            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="fab fa-twitter-square" data-hashtags="KAIZENを使ってみよう！" data-show-count="false"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            <a href="https://github.com/nizutaro/kaizen_portfolio" class="fab fa-github"></a>
-          </ul>
+    <div class="row">
+      <footer class=" footer">
+          <div class="col-md-4 footer__left">
+              <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="fab fa-twitter-square" data-hashtags="KAIZENを使ってみよう！" data-show-count="false"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+              <a href="https://github.com/nizutaro/kaizen_portfolio" class="fab fa-github"></a>
         </div>
         <div class="col-md-4 center-list">
           <p class="copyright">&copy; 2020 yuta niduka</p>

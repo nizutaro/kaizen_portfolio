@@ -1,7 +1,7 @@
 <div class="row show-user">
   <div class="col-md-10  col-md-offset-1 text-center">
     <h2><%= @user.family_name + @user.farst_name %>のページ</h2>
-    <%= attachment_image_tag @user, :image, :fill, 60, 60,size: "60x60", class: "img-circle profile-thumb center-block", fallback: "no-img.jpg"%>
+    <%= attachment_image_tag @user, :image, :fill, 60, 60,size: "60x60", class: "img-circle profile-thumb center-block", fallback: "no-img.jpg" %>
       <% if @user == current_user %>
         <%= link_to "プロフィールを編集",edit_user_path, {class: "btn btn-success"} %>
       <% end %>
