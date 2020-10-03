@@ -4,6 +4,7 @@
     <title>Kaizen</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <!--awesomeの導入-->
@@ -16,30 +17,60 @@
   <body>
     <div class="container-fluid">
       <div class= "row">
-        <header class="navbar navbar-fixed-top bg-light">
-          <div class= "col-md-5 nav-header-logo" >
-            <%= link_to(image_tag('logo_1.png'), root_path, 'data-turbolinks': false ) %>
+          <div class= "col-md-12">
+            <header class="navbar navbar-fixed-top bg-light">
+              <div class="navbar__left">
+                <%= link_to(image_tag('logo_1.png'), root_path, 'data-turbolinks': false ) %>
+              </div>
+              <div class="navbar__right">
+                <% if user_signed_in? %>
+                  <%= link_to("マイページ",user_path(current_user.id)) %>
+                  <%= link_to("提案する",new_project_path) %>
+                  <%= link_to("提案一覧",projects_path) %>
+                  <%= link_to("会員一覧",users_path, 'data-turbolinks': false ) %>
+                  <%= link_to("職業一覧",jobs_path) %>
+                  <%= link_to(" ログアウト", destroy_user_session_path) %>
+                <% else %>
+                  <%= link_to("about",root_path)%>
+                  <%= link_to("提案一覧",projects_path) %>
+                  <%= link_to("会員一覧",users_path) %>
+                  <%= link_to("ログイン", new_user_session_path)%>
+                  <%= link_to("会員登録", new_user_registration_path)%>
+                <% end %>
+              </div>
+              <div class="menu-icon" id="sp-menu">
+                <h2 class="text-center">MENU</h2>
+                  <% if user_signed_in? %>
+                  <ul>
+                    <li><%= link_to("提案する",new_project_path) %></li>
+                    <li><%= link_to("提案一覧",projects_path) %></li>
+                    <li><%= link_to("会員一覧",users_path, 'data-turbolinks': false ) %></li>
+                    <li><%= link_to("職業一覧",jobs_path) %></li>
+                    <li><%= link_to(" ログアウト", destroy_user_session_path) %></li>
+                  </ul>
+                <% else %>
+                <ul>
+                  <li><%= link_to("about",root_path)%></li>
+                  <li><%= link_to("提案一覧",projects_path) %></li>
+                  <li><%= link_to("会員一覧",users_path) %></li>
+                  <li><%= link_to("ログイン", new_user_session_path)%></li>
+                  <li><%= link_to("会員登録", new_user_registration_path)%></li>
+                </ul>
+                <% end %>
+                </div>
+
+
+                <div id="hm-icon">
+                  <a class="menu-trigger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </a>
+                </div>
+              </div>
+            </header>
           </div>
-          <div class= "col-md-1">
-          </div>
-          
-          <div class= "col-md-6 nav-header-list ">
-            <% if user_signed_in? %>
-              <%= link_to("マイページ",user_path(current_user.id)) %>
-              <%= link_to("提案する",new_project_path) %>
-              <%= link_to("提案一覧",projects_path) %>
-              <%= link_to("会員一覧",users_path, 'data-turbolinks': false ) %>
-              <%= link_to("職業一覧",jobs_path) %>
-              <%= link_to(" ログアウト", destroy_user_session_path) %>
-            <% else %>
-              <%= link_to("about",root_path)%>
-              <%= link_to("提案一覧",projects_path) %>
-              <%= link_to("会員一覧",users_path) %>
-              <%= link_to("ログイン", new_user_session_path)%>
-              <%= link_to("会員登録", new_user_registration_path)%>
-            <% end %>
-          </div>
-        </header>
+
       </div>
     </div>
     <div class="container-fluid text-center  main">
