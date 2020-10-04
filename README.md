@@ -1,7 +1,10 @@
 # README
 
+http://kaizen-portfolio.xyz/
+
 ## サイト概要
 
+<img width="848" alt="img3" src="https://user-images.githubusercontent.com/55015069/95005091-a0256680-062e-11eb-8834-88d0c7a62839.png">  
 当サイトは課題を改善するカルチャーの醸成および、最速で意思決定を可能にします。
 
 ### サイトテーマ
@@ -31,5 +34,8 @@
 
 ・会社で解決したい事象があったときに投稿し利用
 
-### 機能一覧  
+### 機能一覧
+
 https://docs.google.com/spreadsheets/d/1vOelOPR-K3nAX49vZ8VDxQhblMHYfFEr-gAP3W6F6bs/edit#gid=0
+
+### AWS 構成図
