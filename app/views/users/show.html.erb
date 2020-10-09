@@ -1,15 +1,15 @@
 <div class="row show-user">
   <div class="col-md-10  col-md-offset-1 text-center">
     <h2><%= @user.family_name + @user.farst_name %>のページ</h2>
-    <%= attachment_image_tag @user, :image, :fill, 60, 60,size: "60x60", class: "img-circle profile-thumb center-block", fallback: "no-img.jpg" %>
-      <% if @user == current_user %>
-        <%= link_to "プロフィールを編集",edit_user_path, {class: "btn btn-success"} %>
-      <% end %>
-  <div class= "projects-all">
-    <h3 class="text-center">これまでの提案数：<%= @projects_count %>件</h3>
-    <h2 class= "text-center">最近提案したプロジェクト</h2>
-    <div class="table-responsive">
-      <table class="table table-striped table-sm">
+    <%= attachment_image_tag @user, :image,size: "60x60", class: "img-circle profile-thumb center-block", fallback: "no-img.jpg" %>
+    <% if @user == current_user %>
+      <%= link_to "プロフィールを編集",edit_user_path, {class: "btn btn-success"} %>
+    <% end %>
+    <div class= "projects-all">
+      <h3 class="text-center">これまでの提案数：<%= @projects_count %>件</h3>
+      <h2 class= "text-center">最近提案したプロジェクト</h2>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
           <tr>
             <th>No.</th>
             <th>タイトル</th>
@@ -19,15 +19,14 @@
             <th>ステータス</th>
             <th></th>
           </tr>
-
           <% @projects.each do |project| %>
             <tr>
               <td><%= project.id %></td>
               <td><%= link_to project.name, project_path(project) %></td>
               <td>
                 <% if project.reducation_time >= 60 %>
-                <%= project.reducation_time / 60 %>時間 
-                <%= project.reducation_time % 60 %>分</td>
+                  <%= project.reducation_time / 60 %>時間 
+                  <%= project.reducation_time % 60 %>分</td>
                 <% else %>
                   <%= project.reducation_time %>分
                 <% end %>
@@ -40,8 +39,9 @@
               <% end %>
             </tr>
           <% end %>
-      </table>
+        </table>
+      </div>
+      <%= paginate @projects %>
     </div>
-    <%= paginate @projects %>
   </div>
 </div>

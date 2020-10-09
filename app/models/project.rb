@@ -20,7 +20,7 @@ def reducation
         hour = self.reducation_time / 60
         min = self.reducation_time  % 60
         return "#{hour}時間#{min}分 #{amount}円"
-     else
+    else
         min = self.reducation_time
         return "#{min}分 #{amount}円"
     end

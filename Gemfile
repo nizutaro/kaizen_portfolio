@@ -70,6 +70,7 @@ gem 'devise'
 gem "refile", require: "refile/rails" , github: 'manfe/refile'
 gem "refile-mini_magick"
 gem "pry-byebug"
+gem 'refile-s3'
 
 #ページネイト
 gem 'kaminari','~>1.2.1'
@@ -82,6 +83,7 @@ gem 'jquery-rails'
 gem 'chart-js-rails','~>0.1.4'
 gem 'dotenv-rails'
 gem 'gon'
+
 
 #AWS
 gem 'dotenv-rails'
