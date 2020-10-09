@@ -5,7 +5,7 @@
       <tr><td>投稿日:<%= @project.created_at.strftime('%Y/%m/%d') %></td></tr>
       <tr><td>No.<%= @project.id %> プロジェクト名:<%= @project.name %></td></tr>
       <tr><td>提案内容:<%= @project.content %></td></tr>
-      <tr><td>提案者:<%= attachment_image_tag @project.user, :image, :fill, 100, 100, format: 'jpeg', fallback:image_path('no-img.jpg'), size:'40x40', class: "img-circle pull-left profile-thumb" %>
+      <tr><td>提案者:<%= attachment_image_tag @project.user, :image, format: 'jpeg', fallback:image_path('no-img.jpg'), size:'40x40', class: "img-circle pull-left profile-thumb" %>
       <%= @project.full_name %></td>
       </tr>
       <tr><td>ステータス:<%= @project.status %></td></tr>

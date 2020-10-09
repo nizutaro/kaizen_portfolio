@@ -21,7 +21,7 @@
           <tr>
             <td>
               <div class="icon-image">
-                <%= attachment_image_tag user, :image, :fill, 100, 100, format: 'jpeg', fallback:'no-img.jpg', size:'40x40', class: "img-circle pull-left profile-thumb" %>
+                <%= attachment_image_tag user, :image, format: 'jpeg', fallback:'no-img.jpg', size:'40x40', class: "img-circle pull-left profile-thumb" %>
               </div>
             </td>
               <td> <%= user.id %> </td>
