@@ -6,7 +6,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
       t.string :family_name, null:false, default:""
       t.string :farst_name, null:false, default:""
-      t.string :image_id, null:false,default:""
+      t.string :image_id
       t.boolean :admin_status, null:false, default:0  
       t.boolean :delete_status, null:false, default:0
       ## Database authenticatable

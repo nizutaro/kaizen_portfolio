@@ -1,7 +1,7 @@
 <div class="row show-user">
   <div class="col-md-10  col-md-offset-1 text-center">
     <h2><%= @user.full_name %>のページ</h2>
-    <%= attachment_image_tag @user, :image,size: "60x60", class: "img-circle profile-thumb center-block", fallback: "no-img.jpg" %>
+    <%= image_tag @image_url,size: "60x60", class: "img-circle profile-thumb center-block" %>
       <% if @user == current_user %>
         <%= link_to "プロフィールを編集",edit_user_path, {class: "show-user__btn btn btn-success"} %>
       <% end %>
@@ -10,6 +10,11 @@
       <h2 class= "text-center">最近提案したプロジェクト</h2>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
+          
+          <% if @projects_count == 0 %>
+            <h2>まだ改善を投稿してません</h2>
+            <%= link_to "ここから改善を始めよう",new_project_path, {class: "btn btn-primary"} %>
+          <% else %>
           <tr>
             <th>No.</th>
             <th>タイトル</th>
@@ -19,25 +24,26 @@
             <th>ステータス</th>
             <th></th>
           </tr>
-          <% @projects.each do |project| %>
-            <tr>
-              <td><%= project.id %></td>
-              <td><%= link_to project.name, project_path(project) %></td>
-              <td>
-                <% if project.reducation_time >= 60 %>
-                  <%= project.reducation_time / 60 %>時間 
-                  <%= project.reducation_time % 60 %>分</td>
-                <% else %>
-                  <%= project.reducation_time %>分
+            <% @projects.each do |project| %>
+              <tr>
+                <td><%= project.id %></td>
+                <td><%= link_to project.name, project_path(project) %></td>
+                <td>
+                  <% if project.reducation_time >= 60 %>
+                    <%= project.reducation_time / 60 %>時間 
+                    <%= project.reducation_time % 60 %>分</td>
+                  <% else %>
+                    <%= project.reducation_time %>分
+                  <% end %>
+                </td>
+                <td><%= project.favorites.count %>件</td>
+                <td><%= project.comments.count %>件</td>
+                <td><%= project.status %></td>
+                <% if project.user == current_user %>
+                  <td><%= link_to "編集",edit_project_path(project), {class: "btn btn-success"} %></td>
                 <% end %>
-              </td>
-              <td><%= project.favorites.count %>件</td>
-              <td><%= project.comments.count %>件</td>
-              <td><%= project.status %></td>
-              <% if project.user == current_user %>
-                <td><%= link_to "編集",edit_project_path(project), {class: "btn btn-success"} %></td>
-              <% end %>
-            </tr>
+              </tr>
+            <% end %>
           <% end %>
         </table>
       </div>

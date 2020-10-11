@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,:recoverable, :rememberable, :validatable
-  
+
   has_many :projects, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
@@ -13,12 +13,23 @@ class User < ApplicationRecord
 
   def self.search(search)
     if search
+      #テスト環境sqlite3の場合
       where(['(family_name || farst_name) like ?', "%#{search}%"])
+      #本番環境Mysql2の場合
+      #where(['concat(family_name, farst_name) like ?', "%#{search}%]")
     else
       all
     end
   end
   def full_name
     return self.family_name + self.farst_name
+  end
+
+  def user_image
+    unless self.image_id.nil?
+      @image_url = "https://image-files-resize-niduka.s3-ap-northeast-1.amazonaws.com/store/" + self.image_id + "-thumbnail."
+    else 
+      @image_url = "https://image-files-original-niduka.s3-ap-northeast-1.amazonaws.com/no_image.jpg"  
+    end
   end
 end

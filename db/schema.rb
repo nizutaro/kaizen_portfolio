@@ -66,12 +66,13 @@ ActiveRecord::Schema.define(version: 2020_09_25_153909) do
     t.integer "number_of_month", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "job_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "family_name", default: "", null: false
     t.string "farst_name", default: "", null: false
-    t.string "image_id", default: "", null: false
+    t.string "image_id"
     t.boolean "admin_status", default: false, null: false
     t.boolean "delete_status", default: false, null: false
     t.string "email", default: "", null: false
