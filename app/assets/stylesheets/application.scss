@@ -120,19 +120,11 @@
   }
 }
 
-.about-img1 {
-  background-image: image-url("about1.jpg");
+@for $i from 1 through 4 {
+  .about-img#{$i} {
+    background-image: image-url("about#{$i}.jpg");
+  }
 }
-.about-img2 {
-  background-image: image-url("about2.jpg");
-}
-.about-img3 {
-  background-image: image-url("about3.jpg");
-}
-.about-img4 {
-  background-image: image-url("about4.jpg");
-}
-
 .login {
   position: absolute;
   width: 100%;

@@ -13,10 +13,13 @@ class User < ApplicationRecord
 
   def self.search(search)
     if search
-      #テスト環境sqlite3の場合
-      where(['(family_name || farst_name) like ?', "%#{search}%"])
-      #本番環境Mysql2の場合
-      #where(['concat(family_name, farst_name) like ?', "%#{search}%]")
+      if Rails.env.production?
+        #本番環境Mysql2の場合
+        where(['concat(family_name, farst_name) like ?', "%#{search}%"])
+      else
+        #テスト環境sqlite3の場合
+        where(['(family_name || farst_name) like ?', "%#{search}%"])
+      end
     else
       all
     end
