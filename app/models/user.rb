@@ -35,4 +35,8 @@ class User < ApplicationRecord
       @image_url = "https://image-files-original-niduka.s3-ap-northeast-1.amazonaws.com/no_image.jpg"  
     end
   end
+
+  def total_reducation_year
+    #
+  end
 end

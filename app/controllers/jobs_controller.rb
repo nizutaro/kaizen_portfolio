@@ -11,7 +11,6 @@ class JobsController < ApplicationController
       flash[:notice] = "登録しました！"
       redirect_to jobs_path
     else
-      #@job = Job.new
       @jobs = Job.all
       flash.now[:danger] = "登録に失敗しました！"
       render :index
@@ -29,6 +28,7 @@ class JobsController < ApplicationController
       flash[:notice] = "更新しました！"
       redirect_to jobs_path
     else
+      flash[:danger] = "更新に失敗しました！"
       render :edit
     end
   end

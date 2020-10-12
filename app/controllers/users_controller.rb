@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update, :destroy]
   def index
     @users = User.all.page(params[:page]).search(params[:search])
+
   end
 
   def show
@@ -15,7 +16,7 @@ class UsersController < ApplicationController
     @image_url = @user.user_image
     if @user != current_user
       redirect_to user_path(current_user)
-      flash[:denger] = '編集画面は自分のアカウントでログインしてださい'
+      flash[:danger] = '編集画面は自分のアカウントでログインしてださい'
     end
 
   end
@@ -28,7 +29,7 @@ class UsersController < ApplicationController
       redirect_to user_path(@user)
     else
       @user = current_user
-      flash[:denger] = '投稿に失敗しました'
+      flash[:danger] = '投稿に失敗しました'
       render :edit
     end
   end

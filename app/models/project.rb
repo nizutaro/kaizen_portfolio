@@ -8,7 +8,9 @@ class Project < ApplicationRecord
   validates :name, presence: true;
   validates :content, presence: true;
   validates :total_amount, presence: true;
-  validates :total_amount, numericality: true
+  validates :total_amount, numericality: true;
+  validates :reducation_time,numericality: true;
+  validates :reducation_time, presence: true;
   
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?

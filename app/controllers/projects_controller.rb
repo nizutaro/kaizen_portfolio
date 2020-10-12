@@ -20,11 +20,10 @@ class ProjectsController < ApplicationController
     @project.user_id = current_user.id
     job = Job.find(project_params[:job_id])
     job_amount = job.amount
-    @project.total_amount = job_amount * @project.number_of_month * @project.reducation_time
-
     if @project.save
-      redirect_to projects_path, notice: "提案を保存しました！"
+      redirect_to projects_path, notice: "提案を投稿しました！"
     else
+      flash.now[:danger] = "投稿に失敗しました"
       render :new
     end
   end
@@ -41,15 +40,16 @@ class ProjectsController < ApplicationController
     if @project.update(project_params)
       redirect_to projects_path, notice: "ユーザー情報を更新しました！"
     else
+      flash.now[:danger] = "投稿に失敗しました"
       render:edit
     end
   end
 
   def show
     @project = Project.find(params[:id])
+    @image_url = @project.user.user_image
     @comment = Comment.new
     @comments = @project.comments.order("created_at DESC").page(params[:page]).per(5)
-
   end
 
   private

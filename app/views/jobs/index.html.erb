@@ -32,7 +32,7 @@
               <td><%= job.id %></td>
               <td><%= job.name %></td>
               <td><%= job.amount %></td>
-               <% if user_signed_in? %>
+              <% if user_signed_in? %>
                 <td><%= link_to("編集",edit_job_path(job), {class: "btn btn-success"})%></td>
               <% end %>
             </tr>
