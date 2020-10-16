@@ -32,7 +32,7 @@
       <%= render partial: 'comments/index', locals: { comments: @comments } %>
     </div>
       <% if user_signed_in? %>
-          <%= render partial: 'comments/form', locals: { project: @project, comment: @comment } %>
+        <%= render partial: 'comments/form', locals: { project: @project, comment: @comment } %>
       <% end %>
     <div class="pagenate">
       <%= paginate @comments %>

@@ -1,15 +1,14 @@
-# README
+# KAIZEN
 
+### サイトテーマ
+
+企業内で業務改善・効率化の文化を醸成するアプリケーション
 http://kaizen-portfolio.xyz/
 
 ## サイト概要
 
 <img width="848" alt="img3" src="https://user-images.githubusercontent.com/55015069/95005091-a0256680-062e-11eb-8834-88d0c7a62839.png">  
 当サイトは課題を改善するカルチャーの醸成および、最速で意思決定を可能にします。
-
-### サイトテーマ
-
-企業内で業務改善・効率化の文化を醸成するアプリケーション
 
 ### テーマを選んだ理由
 
@@ -31,9 +30,31 @@ http://kaizen-portfolio.xyz/
 改善効果を数値化したい企業
 改善の規格化を行いたい企業
 
-### 主な利用シーン
+### 使用技術
 
-・会社で解決したい事象があったときに投稿し利用
+使用技術
+Ruby 2.5.7
+Ruby on Rails 5.2.4.3
+MySQL 5.7
+Nginx
+Puma
+AWS
+VPC
+EC2
+RDS
+Route 53
+CloudWatch
+S3 "アップロード後 lambda がトリガーになり、画像をリサイズする。"
+ALB
+Lambda "S3 に画像が保存された場合にトリガーとして起動"
+chart.js
+omniauth-google-oauth2
+devise
+Ajax
+refile
+kaminari
+chart.js "グラフ用"
+bootstrap "bootstrap"
 
 ### 機能一覧
 
