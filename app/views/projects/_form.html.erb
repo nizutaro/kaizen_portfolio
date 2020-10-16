@@ -1,12 +1,12 @@
-<div class="col-md-4 col-md-offset-4">
+<div class="col-md-6 col-md-offset-3">
   <%= form_with(model:[project], local: true) do |f| %>
     <div class="form-group">
-      <%= f.label :"プロジェクト名" %> <span class="label label-danger">必須</span>
+      <%= f.label :"業務改善のタイトル" %> <span class="label label-danger">必須</span>
       <%= f.text_field :name, class: 'form-control' %>
     </div>
     <div class="form-group">
-      <%= f.label :"内容" %><span class="label label-danger">必須</span>
-      <%= f.text_area :content, class: 'form-control' %>
+      <%= f.label :"業務改善の内容" %><span class="label label-danger">必須</span>
+      <%= f.text_area :content, rows:10 ,class: 'form-control',placeholder:"ここに業務改善の内容を追加してください" %>
     </div>
     <div class="form-group  select">
       <%= f.label :"職種" %>
