@@ -24,6 +24,9 @@
         </div>
       </div>
     <% end %>
-    <%= render "devise/shared/links" %>
+    <ul class= "horizontal_contents">
+      <li><i class="fas fa-user-plus"></i><%= link_to " 新規会員登録", new_user_registration_path %></li>
+      <li><i class="fas fa-info-circle"></i><%= render "devise/shared/links" %></li>
+    </ul>
   </div>
 </div>

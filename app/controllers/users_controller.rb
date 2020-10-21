@@ -18,14 +18,13 @@ class UsersController < ApplicationController
       redirect_to user_path(current_user)
       flash[:danger] = '編集画面は自分のアカウントでログインしてださい'
     end
-
   end
 
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
       sleep(3) # S3への画像反映のタイムラグ
-      flash[:success] = 'プロフィールを更新しました'
+      flash[:success] = 'プロフィールを更新しました(更新の反映に数分かかる場合があります)'
       redirect_to user_path(@user)
     else
       @user = current_user

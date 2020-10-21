@@ -3,5 +3,6 @@ class HomesController < ApplicationController
   end
 
   def inquery
+
   end
 end

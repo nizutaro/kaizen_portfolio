@@ -250,11 +250,26 @@ devise関連
   border-radius: 4px;
   border-style: none;
 }
+
 .button_wrapper {
   text-align: center;
   margin: 50px 0 100px 0;
 }
 
+.horizontal_contents {
+  list-style-type: none;
+  text-align: center;
+  li {
+    float: left;
+    padding: 10px;
+  }
+  a {
+    color: black;
+  }
+  i {
+    padding: 5px;
+  }
+}
 /*================
 pagenate関連
 =================*/

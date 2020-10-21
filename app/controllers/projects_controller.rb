@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-
+  require 'active_support/core_ext/numeric/conversions'
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   
   def index
