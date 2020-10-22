@@ -12,16 +12,12 @@ Admin.create!(
   password: "123456"
   )
 
-  # 100.times do |n|
-  #   first_name = Faker::First_name.name
-  #   last_name = Faker::Last_name.name
-  #   email = Faker::Internet.email
-  #   password = "password"
-  #   User.create!(first_name: first_name,
-  #                last_name: last_name,
-  #                admin_status: admin_status,
-  #                email: email,
-  #                password: password,
-  #                password_confirmation: password
-  #                )
-  # end
+
+  100.times do 
+    User.create(
+      first_name: Faker::Name.first_name, 
+      family_name: Faker::Name.last_name,
+      email: Faker::Internet.email,
+      password: "password"
+    )
+  end
