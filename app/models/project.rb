@@ -53,7 +53,7 @@ def reducation_year
 end
 
 def full_name
-  return self.user.family_name + self.user.farst_name 
+  return self.user.family_name + self.user.first_name 
 end
 
 

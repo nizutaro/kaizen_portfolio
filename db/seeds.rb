@@ -11,3 +11,17 @@ Admin.create!(
   email: "admin@admin",
   password: "123456"
   )
+
+  # 100.times do |n|
+  #   first_name = Faker::First_name.name
+  #   last_name = Faker::Last_name.name
+  #   email = Faker::Internet.email
+  #   password = "password"
+  #   User.create!(first_name: first_name,
+  #                last_name: last_name,
+  #                admin_status: admin_status,
+  #                email: email,
+  #                password: password,
+  #                password_confirmation: password
+  #                )
+  # end

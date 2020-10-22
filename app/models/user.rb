@@ -9,23 +9,23 @@ class User < ApplicationRecord
 
   attachment :image
   validates :family_name, presence: true, length: { maximum: 15 }
-  validates :farst_name, presence: true, length: { maximum: 15 }
+  validates :first_name, presence: true, length: { maximum: 15 }
 
   def self.search(search)
     if search
       if Rails.env.production?
         #本番環境Mysql2の場合
-        where(['concat(family_name, farst_name) like ?', "%#{search}%"])
+        where(['concat(family_name, first_name) like ?', "%#{search}%"])
       else
         #テスト環境sqlite3の場合
-        where(['(family_name || farst_name) like ?', "%#{search}%"])
+        where(['(family_name || first_name) like ?', "%#{search}%"])
       end
     else
       all
     end
   end
   def full_name
-    return self.family_name + self.farst_name
+    return self.family_name + self.first_name
   end
 
   def user_image
@@ -36,7 +36,4 @@ class User < ApplicationRecord
     end
   end
 
-  def total_reducation_year
-    #
-  end
 end

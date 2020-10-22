@@ -1,6 +1,6 @@
 <% comments.each do |f| %>
   投稿日：<%= f.created_at.strftime('%Y/%m/%d') %><br>
-  投稿者：<%= f.user.family_name + f.user.farst_name %><br>
+  投稿者：<%= f.user.family_name + f.user.first_name %><br>
   <% if user_signed_in? %>
     <% if f.user.id == current_user.id %>
       <%= link_to project_comment_path(f.project_id, f.id), method: :delete, remote: true, data: {confirm: "削除しますか？"} do %>
