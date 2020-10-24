@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-offset-2 col-md-4">
+  <div class="col-md-offset-1 col-md-10">
     <h2>プロジェクト詳細</h2>
     <table class="table table-striped">
       <tr><td>投稿日:<%= @project.created_at.strftime('%Y/%m/%d') %></td></tr>
@@ -26,21 +26,22 @@
       </tr>
     </table>
   </div>
-
-  <div class="col-md-4">
-    <h2>コメント一覧</h2>
-    <div id='comments_area'>
-      <%= render partial: 'comments/index', locals: { comments: @comments } %>
-    </div>
-      <% if user_signed_in? %>
-        <%= render partial: 'comments/form', locals: { project: @project, comment: @comment } %>
-      <% else %>
-        <div>
-          <%= link_to raw("<h2>ログイン</h2></br>ログインすると、コメント・いいねが可能です！"),new_user_registration_path, {class: "btn btn-success"} %>
-        </div>
-      <% end %>
-    <div class="pagenate">
-      <%= paginate @comments %>
+  <div class="row">
+    <div class="col-md-4">
+      <h2>コメント一覧</h2>
+      <div id='comments_area'>
+        <%= render partial: 'comments/index', locals: { comments: @comments } %>
+      </div>
+        <% if user_signed_in? %>
+          <%= render partial: 'comments/form', locals: { project: @project, comment: @comment } %>
+        <% else %>
+          <div>
+            <%= link_to raw("<h2>ログイン</h2></br>ログインすると、コメント・いいねが可能です！"),new_user_registration_path, {class: "btn btn-success"} %>
+          </div>
+        <% end %>
+      <div class="pagenate">
+        <%= paginate @comments %>
+      </div>
     </div>
   </div>
 </div>

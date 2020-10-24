@@ -17,6 +17,7 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "_alert.scss";
 
 @mixin top_page_btn {
   text-align: center;

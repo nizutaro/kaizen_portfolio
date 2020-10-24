@@ -1,58 +1,61 @@
 <div class="col-md-offset-3 col-md-6">
-  <%= form_with(model: [project], local: true) do |f| %>
-    <div class= "form-group">
-      <%= f.label :"業務改善のタイトル" %> <span class="label label-danger">必須</span>
-      <%= f.text_field :name, class: 'form-control', placeholder:"例:〇〇の改善" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :"業務改善の内容" %><span class="label label-danger">必須</span>
-      <%= f.text_area :content, rows:10 ,class: 'form-control', placeholder:"ここに業務改善の内容を追加してください" %>
-    </div>
-    <div class="form-group  select">
-      <%= f.label :"職種" %>
-      <%= f.collection_select :job_id, Job.all, :id, :name, class:"form-control" %>
-    </div>
-    <div class="form-group ">
-      <%= f.label :"作業の月回数 約" %>
-      <%= f.select :number_of_month, [*1..31], class: 'form-controlselect' %>回
-    </div>
-    <div class="form-group select">
-      <%= f.label :"１回当たりの削減時間" %><span class="label label-danger">必須</span>
-      <label><%= f.text_field :reducation_time, class: 'reducation_min' %> 分</label>
-    </div>
-    <div class="form-group">
-      <%= f.label :"作業で消費する備品代" %>
-      <%= f.text_field :total_amount, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :"開始予定日" %>
-      <%= raw sprintf(
-        f.date_select(:"start_date",   
+  <div class="contants_form">
+    <h2 class="page-header text-center border-bottom">提案ページ</h2>
+    <%= form_with(model: [project], local: true) do |f| %>
+      <div class= "form-group">
+        <%= f.label :"業務改善のタイトル" %> <span class="label label-danger">必須</span>
+        <%= f.text_field :name, class: 'form-control', placeholder:"例:〇〇の改善" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :"業務改善の内容" %><span class="label label-danger">必須</span>
+        <%= f.text_area :content, rows:10 ,class: 'form-control', placeholder:"ここに業務改善の内容を追加してください" %>
+      </div>
+      <div class="form-group  select">
+        <%= f.label :"職種" %>
+        <%= f.collection_select :job_id, Job.all, :id, :name, class:"form-control" %>
+      </div>
+      <div class="form-group ">
+        <%= f.label :"作業の月回数 約" %>
+        <%= f.select :number_of_month, [*1..31], class: 'form-controlselect' %>回
+      </div>
+      <div class="form-group select">
+        <%= f.label :"１回当たりの削減時間" %><span class="label label-danger">必須</span>
+        <label><%= f.text_field :reducation_time, class: 'reducation_min' %> 分</label>
+      </div>
+      <div class="form-group">
+        <%= f.label :"作業で消費する備品代" %>
+        <%= f.text_field :total_amount, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :"開始予定日" %>
+        <%= raw sprintf(
+          f.date_select(:"start_date",   
+          use_month_numbers: true,
+          start_year:        2020,
+          end_year:          (Time.now.year + 20),
+          default:           Date.new(2020, 1, 1),
+          date_separator:    '%s'), # 年月日区切りをそれぞれ指定
+              '年 ', '月 ' , class: 'form-control') + '日'%>
+      </div>
+      <div class="form-group">
+        <%= f.label :"終了予定日" %>
+        <%= raw sprintf(
+        f.date_select(:"finish_date",   
         use_month_numbers: true,
         start_year:        2020,
         end_year:          (Time.now.year + 20),
         default:           Date.new(2020, 1, 1),
         date_separator:    '%s'), # 年月日区切りをそれぞれ指定
-            '年 ', '月 ' , class: 'form-control') + '日'%>
-    </div>
-    <div class="form-group">
-      <%= f.label :"終了予定日" %>
-      <%= raw sprintf(
-      f.date_select(:"finish_date",   
-      use_month_numbers: true,
-      start_year:        2020,
-      end_year:          (Time.now.year + 20),
-      default:           Date.new(2020, 1, 1),
-      date_separator:    '%s'), # 年月日区切りをそれぞれ指定
-          '年 ', '月 ' , class: 'form-control') + '日' %>
-    </div>
+            '年 ', '月 ' , class: 'form-control') + '日' %>
+      </div>
 
-    <div class="form-group"> 
-      <%= f.label :"ステータス" %>
-      <%= f.select :status, Project.statuses.keys.to_a %>
-    </div>
-    <div class="btn-position">
-      <%= f.submit '投稿する', class:"btn btn-primary" %>
-    </div>
-  <% end %>
+      <div class="form-group"> 
+        <%= f.label :"ステータス" %>
+        <%= f.select :status, Project.statuses.keys.to_a %>
+      </div>
+      <div class="btn-position">
+        <%= f.submit '投稿する', class:"btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
 </div>

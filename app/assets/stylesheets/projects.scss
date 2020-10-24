@@ -7,6 +7,11 @@
   text-align: center;
 }
 
+.select {
+  height: 20px;
+  margin-right: 6px;
+}
+
 .label {
   margin-left: 5px;
 }
@@ -17,7 +22,8 @@
 
 //project_new
 .project-new {
-  margin-bottom: 50px;
+  background-color: powderblue;
+  padding-bottom: 50px;
 }
 
 .reducation_min {
@@ -39,9 +45,11 @@
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
-.select {
-  height: 20px;
-  margin-right: 6px;
+.contants_form {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: white;
+  padding: 10px 20px;
 }
 
 //エラーメッセージ
