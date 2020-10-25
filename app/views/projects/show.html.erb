@@ -1,37 +1,53 @@
-<div class="row">
-  <div class="col-md-offset-1 col-md-10">
-    <h2>プロジェクト詳細</h2>
-    <table class="table table-striped">
-      <tr><td>投稿日:<%= @project.created_at.strftime('%Y/%m/%d') %></td></tr>
-      <tr><td>No.<%= @project.id %> プロジェクト名:<%= @project.name %></td></tr>
-      <tr><td>提案内容:<%= @project.content %></td></tr>
-      <tr><td>提案者:<%= image_tag @image_url, size:'40x40', class: "img-circle pull-left profile-thumb" %>
-      <%= @project.full_name %></td>
-      </tr>
-      <tr><td>ステータス:<%= @project.status %></td></tr>
-      <tr><td>開始予定日:<%= @project.start_date %></td></tr>
-      <tr><td>終了予定日:<%= @project.finish_date %></td></tr>
-      <tr><td>作業の月回数：<%= @project.number_of_month %>回</td></tr>
-      <tr>
-        <td>１回の削減時間：<%= @project.reducation %><br>
-          月の削減時間:<%= @project.reducation_month %><br>
-          年間の削減時間:<%= @project.reducation_year %>
-        </td>
-      </tr>
-      <tr>
-        <td>いいね <i class="fa fa-heart" aria-hidden="true" style="color: red;">
-          <%= @project.favorites.count %></i>件
-          コメント<i class="fas fa-comment"> <%= @project.comments.count %></i>件
-        </td>
-      </tr>
-    </table>
-  </div>
-  <div class="row">
-    <div class="col-md-4">
-      <h2>コメント一覧</h2>
-      <div id='comments_area'>
-        <%= render partial: 'comments/index', locals: { comments: @comments } %>
+  <div class="row project_page">
+    <div class="col-md-offset-1 col-md-10">
+      <h2>プロジェクト詳細</h2>
+      <div class="project">
+        <div class="project-date"> 投稿日:<%= @project.created_at.strftime('%Y/%m/%d') %></div>
+        <div class="project_no"> No.<%= @project.id %></div>
+        <div class="project_title"> 改善提案名</div>
+        <div class="project-name"><%= @project.name %></div>
+        <div class="project-content_title"> 提案内容</div>
+        <div class="project-content"><%= @project.content %></div>
+        <div class="project_block">
+          <div class="project_user">
+            <div class="user_data1">
+              <div class="project_user_title">提案者</div>
+              <div class= "project_user_image"><%= image_tag @image_url, size:'40x40', class: "img-circle profile-thumb" %></div>
+              <div class="user_name"><%= @project.full_name %></div>
+            </div> 
+            <div class="user_data2">
+              <div class="favo">いいね <i class="fa fa-heart" aria-hidden="true" style="color: red;">
+              <%= @project.favorites.count %></i>件</div>
+              <div class="comment">コメント<i class="fas fa-comment"> <%= @project.comments.count %></i>件</div>
+            </div>
+          </div>
+          <div class="project_info">
+            <div class="status">ステータス:<%= @project.status %></div>
+            <div class="start">開始予定日:<%= @project.start_date %></div>
+            <div class="finish">終了予定日:<%= @project.finish_date %></div>
+          </div>
+          <div class="project_reducation">
+            <div class="project_reducation_1">作業の月回数：<%= @project.number_of_month %>回</div>
+            <div class="project_reducation_2">１回の削減時間：<%= @project.reducation %></div>
+            <div class="project_reducation_3">月の削減時間:<%= @project.reducation_month %></div>
+            <div class="project_reducation_4">年間の削減時間:<%= @project.reducation_year %></div> 
+          </div>
+        </div>
       </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h2>コメント一覧</h2>
+      </div>
+      <div class="col-md-offset-2 col-md-4">
+        <div id='comments_area'>
+          <%= render partial: 'comments/index', locals: { comments: @comments } %>
+        </div>
+        <div class="pagenate">
+          <%= paginate @comments %>
+        </div>
+      </div>
+      <div class="col-md-4">
         <% if user_signed_in? %>
           <%= render partial: 'comments/form', locals: { project: @project, comment: @comment } %>
         <% else %>
@@ -39,9 +55,6 @@
             <%= link_to raw("<h2>ログイン</h2></br>ログインすると、コメント・いいねが可能です！"),new_user_registration_path, {class: "btn btn-success"} %>
           </div>
         <% end %>
-      <div class="pagenate">
-        <%= paginate @comments %>
       </div>
     </div>
   </div>
-</div>

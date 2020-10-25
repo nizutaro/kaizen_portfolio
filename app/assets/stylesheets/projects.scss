@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.project_page {
+  background-color: lightblue;
+}
 .btn-position {
   display: block;
   text-align: center;
@@ -55,4 +58,75 @@
 //エラーメッセージ
 .field_with_errors {
   display: contents;
+}
+
+//showページ
+
+.project {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: inline-block;
+  .project-date {
+    text-align: left;
+  }
+  .project_no {
+    text-align: left;
+  }
+  .project-name {
+    font-size: 40px;
+  }
+  .project-content {
+    font-size: 10px;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: auto;
+    height: 100px;
+    padding: 10px;
+    margin: 10px;
+  }
+  .project_user {
+    height: 100px;
+    width: 300px;
+    margin: 10px;
+    margin-left: 25px;
+    text-align: left;
+    padding: 10px;
+    padding-left: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    float: left;
+  }
+  .project_user_image {
+    width: 100%;
+    height: auto;
+  }
+  .project_info {
+    height: 100px;
+    width: 300px;
+    margin: 10px;
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    float: left;
+  }
+  .project_reducation {
+    width: 300px;
+    height: 100px;
+    margin: 10px;
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    float: left;
+  }
+  .user_data1 {
+    float: left;
+  }
+  .user_data2 {
+    float: left;
+    padding: 0 0 0 50px;
+  }
 }
