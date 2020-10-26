@@ -1,0 +1,23 @@
+@mixin top_page_btn {
+  text-align: center;
+  font-size: 24px;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  position: relative;
+  font-weight: bold;
+  width: 40rem;
+  a {
+    display: block;
+    color: white;
+    text-decoration: none;
+  }
+
+  &:hover {
+    color: #fff;
+    transition: 400ms;
+    background: #ffcc66;
+  }
+}

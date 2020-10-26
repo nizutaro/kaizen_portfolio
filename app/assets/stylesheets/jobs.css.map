@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAIA,AAAA,UAAU,CAAC;EACT,UAAU,EAAE,KAAK;CAClB",
+    "sources": [
+        "jobs.scss"
+    ],
+    "names": [],
+    "file": "jobs.css"
+}

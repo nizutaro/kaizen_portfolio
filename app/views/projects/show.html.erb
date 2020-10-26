@@ -3,30 +3,30 @@
       <h2>プロジェクト詳細</h2>
       <div class="project">
         <div class="project-date"> 投稿日:<%= @project.created_at.strftime('%Y/%m/%d') %></div>
-        <div class="project_no"> No.<%= @project.id %></div>
+        <div class="project-no"> No.<%= @project.id %></div>
         <div class="project_title"> 改善提案名</div>
         <div class="project-name"><%= @project.name %></div>
         <div class="project-content_title"> 提案内容</div>
         <div class="project-content"><%= @project.content %></div>
         <div class="project_block">
-          <div class="project_user">
-            <div class="user_data1">
+          <div class="project-user">
+            <div class="project-user-data1">
               <div class="project_user_title">提案者</div>
-              <div class= "project_user_image"><%= image_tag @image_url, size:'40x40', class: "img-circle profile-thumb" %></div>
+              <div class= "project-user-image"><%= image_tag @image_url, size:'40x40', class: "img-circle profile-thumb" %></div>
               <div class="user_name"><%= @project.full_name %></div>
             </div> 
-            <div class="user_data2">
+            <div class="project-user-data2">
               <div class="favo">いいね <i class="fa fa-heart" aria-hidden="true" style="color: red;">
               <%= @project.favorites.count %></i>件</div>
               <div class="comment">コメント<i class="fas fa-comment"> <%= @project.comments.count %></i>件</div>
             </div>
           </div>
-          <div class="project_info">
-            <div class="status">ステータス:<%= @project.status %></div>
-            <div class="start">開始予定日:<%= @project.start_date %></div>
-            <div class="finish">終了予定日:<%= @project.finish_date %></div>
+          <div class="project-info">
+            <div class="project-status">ステータス:<%= @project.status %></div>
+            <div class="project-start">開始予定日:<%= @project.start_date %></div>
+            <div class="project-finish">終了予定日:<%= @project.finish_date %></div>
           </div>
-          <div class="project_reducation">
+          <div class="project-reducation">
             <div class="project_reducation_1">作業の月回数：<%= @project.number_of_month %>回</div>
             <div class="project_reducation_2">１回の削減時間：<%= @project.reducation %></div>
             <div class="project_reducation_3">月の削減時間:<%= @project.reducation_month %></div>

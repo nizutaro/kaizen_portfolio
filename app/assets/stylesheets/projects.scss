@@ -2,6 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@mixin wrapper {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+@mixin wrapper-contents {
+  height: 100px;
+  margin: 10px;
+  width: 300px;
+  text-align: left;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  float: left;
+}
+
 .project_page {
   background-color: lightblue;
 }
@@ -63,69 +81,45 @@
 //showページ
 
 .project {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  display: inline-block;
-  .project-date {
+  @include wrapper;
+  &-date {
     text-align: left;
   }
-  .project_no {
+  &-no {
     text-align: left;
   }
-  .project-name {
+  &-name {
     font-size: 40px;
   }
-  .project-content {
+  &-content {
     font-size: 10px;
     display: block;
     border: 1px solid #ccc;
     border-radius: 5px;
+    padding: 10px;
     width: auto;
     height: 100px;
-    padding: 10px;
     margin: 10px;
   }
-  .project_user {
-    height: 100px;
-    width: 300px;
-    margin: 10px;
+  &-user {
+    @include wrapper-contents;
     margin-left: 25px;
-    text-align: left;
-    padding: 10px;
     padding-left: 40px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    float: left;
   }
-  .project_user_image {
+  &-user-image {
     width: 100%;
     height: auto;
   }
-  .project_info {
-    height: 100px;
-    width: 300px;
-    margin: 10px;
-    text-align: left;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  &-info {
+    @include wrapper-contents;
+  }
+  &-reducation {
+    @include wrapper-contents;
+  }
+  &-user-data1 {
     float: left;
   }
-  .project_reducation {
-    width: 300px;
-    height: 100px;
-    margin: 10px;
-    text-align: left;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    float: left;
-  }
-  .user_data1 {
-    float: left;
-  }
-  .user_data2 {
+  &-user-data2 {
     float: left;
     padding: 0 0 0 50px;
   }
