@@ -22,10 +22,31 @@ Admin.create!(
     )
   end
 
-#   Job.create!(
-#   )
-#   jobs = Job.create([{name: "営業"}, {name: "技術"},{name:"事務"}])
-# # ループでまとめて作成
-# 3.times do |i|
-#   Job.create(user_id: User.find(i+1).id, title: "Star Wars #{i+1}")
-# end
+
+
+jobs = [
+  {id: 1, name: "営業", amount: 10000 },
+  {id: 2,  name: "技術", amount: 10000},
+  {id: 3, name: "事務", amount: 5000 },
+  {id: 4, name: "サービス", amount: 5000},
+  {id: 5, name: "警備", amount: 5000},
+  {id: 6, name: "清掃", amount: 5000 },
+  {id: 7, name: "販売", amount: 5000 },
+  {id: 8, name: "配達", amount: 5000 },
+  {id: 9, name: "製造", amount: 5000 },
+  {id: 10, name: "工場", amount: 5000 },
+  {id: 11, name: "倉庫", amount: 5000 },
+  {id: 12, name: "エンジニア", amount: 5000 },
+  {id: 13, name: "生産管理", amount: 5000}
+  
+]
+
+  jobs.each do |job|
+    Job.create(job)
+  end
+
+
+
+
+
+
