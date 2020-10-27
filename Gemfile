@@ -85,6 +85,7 @@ gem 'chart-js-rails','~>0.1.4'
 gem 'dotenv-rails'
 gem 'gon'
 
+gem 'rails-i18n'
 
 #AWS
 gem 'dotenv-rails'
