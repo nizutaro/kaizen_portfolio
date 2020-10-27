@@ -54,11 +54,11 @@ jobs = [
       start_date:"2020-1-1",
       finish_date:"2020-1-1" ,
       total_amount:0,
-      status:3,
+      status:rand(1..3),
       reducation_time:200,
       reducation_amount:600,
       number_of_month:3,
-      job_id:1
+      job_id:rand(1..14)
     },
     {user_id:rand(1..100),
       name: "実験手順の見直し",
@@ -70,7 +70,7 @@ jobs = [
       reducation_time:20,
       reducation_amount:16666,
       number_of_month:5,
-      job_id:2
+      job_id:rand(1..14)
     },
     {user_id:rand(1..100),
       name: "業務用プログラムの作成",
@@ -82,7 +82,7 @@ jobs = [
       reducation_time:600,
       reducation_amount:600,
       number_of_month:1,
-      job_id:3
+      job_id:rand(1..14)
     },
     {user_id:rand(1..100),
       name: "書式の判子欄をなくしました。",
@@ -90,11 +90,11 @@ jobs = [
       start_date:"2020-1-1",
       finish_date:"2020-1-1" ,
       total_amount:0,
-      status:3,
+      status:rand(1..3),
       reducation_time:12,
       reducation_amount:600,
       number_of_month:5,
-      job_id:4
+      job_id:rand(1..14)
     },
     {user_id:rand(1..100),
       name: "書式の判子欄をなくしました。",
@@ -102,11 +102,11 @@ jobs = [
       start_date:"2020-1-1",
       finish_date:"2020-1-1" ,
       total_amount:0,
-      status:3,
+      status:rand(1..3),
       reducation_time:12,
       reducation_amount:600,
       number_of_month:5,
-      job_id:6
+      job_id:rand(1..14)
     },
     {user_id:rand(1..100),
       name: "申請書式の電子化",
@@ -115,11 +115,11 @@ jobs = [
       start_date:"2020-1-1",
       finish_date:"2020-1-1" ,
       total_amount:0,
-      status:3,
+      status:rand(1..3),
       reducation_time:200,
       reducation_amount:600,
       number_of_month:3,
-      job_id:15
+      job_id:rand(1..14)
     },
     {user_id:rand(1..100),
       name: "実験手順の見直し",
@@ -127,11 +127,11 @@ jobs = [
       start_date:"2020-3-1",
       finish_date:"2020-5-1" ,
       total_amount:0,
-      status:3,
+      status:rand(1..3),
       reducation_time:20,
       reducation_amount:16666,
       number_of_month:5,
-      job_id:13
+      job_id:rand(1..14)
     },
     {user_id:rand(1..100),
       name: "業務用プログラムの作成",
@@ -143,7 +143,7 @@ jobs = [
       reducation_time:600,
       reducation_amount:600,
       number_of_month:1,
-      job_id:12
+      job_id:rand(1..14)
     },
     {user_id:rand(1..100),
       name: "書式の判子欄をなくしました。",
@@ -155,7 +155,7 @@ jobs = [
       reducation_time:12,
       reducation_amount:600,
       number_of_month:5,
-      job_id:9
+      job_id:rand(1..14)
     },
     {user_id:rand(1..100) ,
       name: "申請書式の電子化",
@@ -168,7 +168,7 @@ jobs = [
       reducation_time:200,
       reducation_amount:600,
       number_of_month:3,
-      job_id:8
+      job_id:rand(1..14)
         },
     {user_id:rand(1..100),
       name: "実験手順の見直し",
@@ -180,7 +180,7 @@ jobs = [
       reducation_time:20,
       reducation_amount:16666,
       number_of_month:5,
-      job_id:7
+      job_id:rand(1..14)
     },
     {user_id:rand(1..100),
       name: "業務用プログラムの作成",
@@ -192,7 +192,7 @@ jobs = [
       reducation_time:600,
       reducation_amount:600,
       number_of_month:1,
-      job_id:6
+      job_id:rand(1..14)
     }
   ]
   
@@ -200,8 +200,13 @@ jobs = [
     Project.create(project)
   end
 
+# content = ["いいですね","素晴らしい","頑張ってください","協力します","応援してます","手伝わせてください","頑張りましたね","いいアイデアですね","面白い!!","ナイス！","この調子で！"]
 
 
-
-
-
+500.times do 
+  Comment.create(
+    project_id: rand(1..12), 
+    user_id: rand(1..100),
+    content: "ナイス！"
+  )
+end
