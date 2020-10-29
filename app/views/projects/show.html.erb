@@ -52,7 +52,11 @@
           <%= render partial: 'comments/form', locals: { project: @project, comment: @comment } %>
         <% else %>
           <div>
-            <%= link_to raw("<h2>ログイン</h2></br>ログインすると、コメント・いいねが可能です！"),new_user_registration_path, {class: "btn btn-success"} %>
+            <%= link_to new_user_registration_path, class: "btn btn-success" do %>
+              <h2>ログイン</h2>
+              <br>
+              ログインすると、コメント・いいねが可能です！
+          <% end %> 
           </div>
         <% end %>
       </div>
