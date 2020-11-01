@@ -10,6 +10,8 @@ class User < ApplicationRecord
   attachment :image
   validates :family_name, presence: true, length: { maximum: 15 }
   validates :first_name, presence: true, length: { maximum: 15 }
+  validates :email, presence: true, length: {maximum: 50 }
+
 
   def self.search(search)
     if search
@@ -24,6 +26,7 @@ class User < ApplicationRecord
       all
     end
   end
+
   def full_name
     return self.family_name + self.first_name
   end
