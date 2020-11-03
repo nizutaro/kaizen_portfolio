@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
   root 'homes#about'
   get '/homes/inquery' => 'homes#inquery'
+  post '/homes/guest_sign_in', to: 'homes#new_guest'
 
 
 end

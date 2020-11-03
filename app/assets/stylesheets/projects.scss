@@ -6,6 +6,7 @@
 
 .project_page {
   background-color: lightblue;
+  @include top_margin;
 }
 .btn-position {
   display: block;
