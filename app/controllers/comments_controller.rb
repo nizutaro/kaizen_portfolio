@@ -1,9 +1,11 @@
 class CommentsController < ApplicationController
 
   def create
+    
     @project = Project.find(params[:project_id])
     @comment = @project.comments.build(comment_params)
     @comment.user_id = current_user.id
+
     if @comment.save
       @comments= @project.comments
     end

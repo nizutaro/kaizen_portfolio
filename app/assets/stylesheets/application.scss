@@ -22,7 +22,7 @@
 
 //* ヘッダー
 .navbar {
-  background-color: #fff;
+  background-color: #ffffff3b;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
   border-bottom: 1px solid #e5e9ef;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -47,7 +47,6 @@
       padding: 10px;
       color: #1e5099;
       margin-left: 22px;
-      border-radius: 5px;
       position: relative;
       text-decoration: none;
 
@@ -78,10 +77,6 @@
   border-bottom: 1px solid #e5e5e5;
 }
 
-.main {
-  margin-top: 100px;
-}
-
 //aboutページ
 .about {
   background-repeat: no-repeat;
@@ -89,7 +84,6 @@
   border-bottom: 40px;
   color: white;
   height: 750px;
-  padding-top: 20px;
   margin: 0 auto;
   vertical-align: middle;
 
@@ -118,6 +112,11 @@
     @include top_page_btn();
     border: 2px solid white;
   }
+}
+
+.no-padding {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 /*=================

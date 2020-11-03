@@ -21,3 +21,7 @@
     background: #ffcc66;
   }
 }
+
+@mixin top_margin {
+  padding-top: 100px;
+}

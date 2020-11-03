@@ -14,7 +14,7 @@ RSpec.describe 'Userに関するテスト', type: :model do
       end
     end
     context 'favoritesモデルとの関係' do
-      it '1:Nとなっている' do
+      it 'N:Nとなっている' do
         expect(User.reflect_on_association(:favorites).macro).to eq(:has_many)
       end
     end

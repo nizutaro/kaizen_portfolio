@@ -31,12 +31,20 @@ http://kaizen-portfolio.xyz/
 
 ### 使用技術
 
-使用技術
-Ruby 2.5.7
-Ruby on Rails 5.2.4.3
-MySQL 5.7
-Nginx
-Puma
+Rspec
+chart.js
+devise
+Ajax
+refile
+kaminari
+chart.js "グラフ用"
+bootstrap "bootstrap"
+
+API
+・googlemap
+
+### インフラ技術
+
 AWS
 VPC
 EC2
@@ -46,16 +54,14 @@ CloudWatch
 S3 "アップロード後 lambda がトリガーになり、画像をリサイズする。"
 ALB
 Lambda "S3 に画像が保存された場合にトリガーとして起動"
-chart.js
-omniauth-google-oauth2
-devise
-Ajax
-refile
-kaminari
-chart.js "グラフ用"
-bootstrap "bootstrap"
-API
-・googlemap
+
+### 環境
+
+Ruby 2.5.7
+Ruby on Rails 5.2.4.3
+MySQL 5.7
+Nginx
+Puma
 
 ### 機能一覧
 

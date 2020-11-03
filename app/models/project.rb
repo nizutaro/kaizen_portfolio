@@ -5,12 +5,11 @@ class Project < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   
-  validates :name, presence: true;
-  validates :content, presence: true;
-  validates :total_amount, presence: true;
-  validates :total_amount, numericality: true;
-  validates :reducation_time,numericality: true;
-  validates :reducation_time, presence: true;
+  validates :name, presence: true, length: {maximum: 50 };
+  validates :content, presence: true, length: {maximum: 250 };
+  validates :total_amount, presence: true, numericality: true, length:{maximum: 10 };  
+  validates :reducation_time, presence: true, numericality: true,length: {maximum: 10 };  
+  
   
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
