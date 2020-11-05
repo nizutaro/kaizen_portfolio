@@ -22,7 +22,7 @@
 @import "_skippr.scss"; // skkiprの編集
 // ヘッダー
 .navbar {
-  background-color: #ffffff3b;
+  background-color: #000000ab;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
   border-bottom: 1px solid #e5e9ef;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -51,7 +51,7 @@
 
     a {
       padding: 10px;
-      color: #1e5099;
+      color: white;
       margin-left: 22px;
       position: relative;
       text-decoration: none;
@@ -78,14 +78,6 @@
   .section {
     height: 100vh;
 
-    &.section-a {
-      background: black;
-    }
-
-    &.section-b {
-      background-color: white;
-    }
-
     // アニメーションの変化時間
     transition: 0.5s;
   }
@@ -95,6 +87,10 @@
   background-color: white;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
   padding-bottom: 0;
+
+  a {
+    color: #1e5099;
+  }
 }
 
 .menu-icon {
