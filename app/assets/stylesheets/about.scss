@@ -1,4 +1,5 @@
 @import "./google_map.scss";
+@import "./function.scss";
 
 .access {
   margin-bottom: 50px;
@@ -47,19 +48,11 @@
 devise関連
 =================*/
 .devise-btn {
-  width: 300px;
-  height: 50px;
-  background-color: #41bcea;
-  border-radius: 4px;
-  border-style: none;
+  @include devise_btn;
 }
 
 .guest-btn {
-  width: 300px;
-  height: 50px;
-  background-color: #41bcea;
-  border-radius: 4px;
-  border-style: none;
+  @include devise_btn;
   margin: 30px;
   padding: 15px;
 }
