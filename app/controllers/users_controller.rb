@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   def index
     @users = User.all.page(params[:page]).search(params[:search])
 
+    @user = User.includes(:users)
+
   end
 
   def show
@@ -17,6 +19,7 @@ class UsersController < ApplicationController
     if @user != current_user
       redirect_to user_path(current_user)
       flash[:danger] = '編集画面は自分のアカウントでログインしてださい'
+
     end
   end
 
@@ -37,3 +40,4 @@ class UsersController < ApplicationController
     params.require(:user).permit(:family_name,:first_name,:image, :image_id,:admin_status, :email)
   end
 end
+

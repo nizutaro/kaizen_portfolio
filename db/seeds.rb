@@ -40,7 +40,6 @@ CSV.foreach('db/project.csv', encoding: 'Shift_JIS:UTF-8', headers: true) do |ro
     finish_date: row['finish_date'],
     status: row['status'].to_i,
     reducation_time: row['reducation_time'],
-    total_amount: row['total_amount'],
     reducation_amount: row['reducation_amount'],
     number_of_month: row['number_of_month'],
     job_id: row['job_id']

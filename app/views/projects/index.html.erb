@@ -48,9 +48,9 @@
             年:<%= project.reducation_year %>
           </td>
           <td>
-            1回:<%= project.total_amount.to_s(:delimited) %>円<br>
-            月:<%= (project.number_of_month * project.total_amount).to_s(:delimited) %>円 <br>
-            年:<%= ((project.number_of_month * 12) * project.total_amount).to_s(:delimited) %>円
+            1回:<%= project.reducation_amount.to_s(:delimited) %>円<br>
+            月:<%= (project.number_of_month * project.reducation_amount).to_s(:delimited) %>円 <br>
+            年:<%= ((project.number_of_month * 12) * project.reducation_amount).to_s(:delimited) %>円
           </td>
           <td>
             <%= project.status %><br>

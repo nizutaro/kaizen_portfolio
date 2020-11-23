@@ -7,7 +7,6 @@ FactoryBot.define do
     start_date { '2020/1/1'}
     finish_date { '2020/1/2'}
     status{Random.rand(1 .. 3)}
-    total_amount{Faker::Number.number(digits:4)}
     reducation_amount{Faker::Number.number(digits:6)}
     reducation_time{Faker::Number.number(digits:4)}
     number_of_month{Random.rand(1 .. 12)}

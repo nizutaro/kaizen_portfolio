@@ -7,7 +7,6 @@ class Project < ApplicationRecord
   
   validates :name, presence: true, length: {maximum: 50 };
   validates :content, presence: true, length: {maximum: 250 };
-  validates :total_amount, presence: true, numericality: true, length:{maximum: 10 };  
   validates :reducation_time, presence: true, numericality: true,length: {maximum: 10 };  
   
   

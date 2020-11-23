@@ -63,36 +63,5 @@ RSpec.describe 'projectに関するテスト' , type: :model do
       end
     end
 
-    describe 'total_amountカラムのテスト' do
-      it "空欄で弾かれること" do 
-        project.content = ''
-        expect(project.valid?).to eq false;
-      end
-
-      it "10文字以内であること" do
-        project.total_amount = Faker::Number.number(digits:10)
-        expect(project.valid?).to eq true;
-      end
-
-      it "11文字以内で弾かれること" do
-        project.total_amount = Faker::Number.number(digits:11)
-        expect(project.valid?).to eq false;
-      end
-    end
-
-    describe 'reducation_amountカラムのテスト' do
-      it "空欄で弾かれること" do
-        project.reducation_amount = ''
-      end
-
-      it "10文字以内であること" do
-        project.reducation_amount = Faker::Number.number(digits:10)
-      end
-
-      it "11文字以内で弾かれること" do
-        project.total_amount = Faker::Number.number(digits:11)
-        expect(project.valid?).to eq false;
-      end
-    end
   end
 end

@@ -23,10 +23,6 @@
         <label><%= f.text_field :reducation_time, class: 'reducation_min' %> 分</label>
       </div>
       <div class="form-group">
-        <%= f.label :"作業で消費する備品代" %>
-        <%= f.text_field :total_amount, class: 'form-control' %>
-      </div>
-      <div class="form-group">
         <%= f.label :"開始予定日" %>
         <%= raw sprintf(
           f.date_select(:"start_date",   

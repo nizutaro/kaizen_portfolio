@@ -7,7 +7,8 @@ http://kaizen-portfolio.xyz/
 
 ## サイト概要
 
-<img width="848" alt="img3" src="https://user-images.githubusercontent.com/55015069/95005091-a0256680-062e-11eb-8834-88d0c7a62839.png">  
+<img width="848" alt="img3" src="https://user-images.githubusercontent.com/55015069/95005091-a0256680-062e-11eb-8834-88d0c7a62839.png">
+
 当サイトは課題を改善するカルチャーの醸成および、業務の効率化・業務改善に対して最速で意思決定を可能にします。
 
 ### テーマを選んだ理由
@@ -31,36 +32,36 @@ http://kaizen-portfolio.xyz/
 
 ### 使用技術
 
-Rspec
-chart.js
-devise
-Ajax
-refile
-kaminari
-chart.js "グラフ用"
-bootstrap "bootstrap"
+Rspec  
+chart.js  
+devise  
+Ajax  
+refile  
+kaminari  
+chart.js  
+bootstrap
 
-API
+API  
 ・googlemap
 
 ### インフラ技術
 
-AWS
-VPC
-EC2
-RDS
-Route 53
-CloudWatch
-S3 "アップロード後 lambda がトリガーになり、画像をリサイズする。"
-ALB
+AWS  
+VPC  
+EC2  
+RDS  
+Route 53  
+CloudWatch  
+S3 "アップロード後 lambda がトリガーになり、画像をリサイズする。"  
+ALB  
 Lambda "S3 に画像が保存された場合にトリガーとして起動"
 
 ### 環境
 
-Ruby 2.5.7
-Ruby on Rails 5.2.4.3
-MySQL 5.7
-Nginx
+Ruby 2.5.7  
+Ruby on Rails 5.2.4.3  
+MySQL 5.7  
+Nginx  
 Puma
 
 ### 機能一覧
